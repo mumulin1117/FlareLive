@@ -2,31 +2,27 @@ import UIKit
 
 class FLORENICFloristHuddleController: UIViewController {
 
-    // MARK: - Data Properties
-    // 保留原有逻辑
+  
     private var FLORENICswiftuSiaki: Array<Dictionary<String, Any>> = Array<Dictionary<String, Any>>()
     
-    // MARK: - UI Components
-    
-    // 对应 Storyboard 中的 image="association"
+   
     private lazy var FLORENIClogoImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "association")
-        imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+        let FLORENICimageView = UIImageView()
+        FLORENICimageView.image = UIImage(named: "FLORENICassociation")
+        FLORENICimageView.contentMode = .scaleAspectFit
+        FLORENICimageView.translatesAutoresizingMaskIntoConstraints = false
+        return FLORENICimageView
     }()
-    
-    // 对应 Storyboard 中的 outlet property="pinHolder"
+   
     lazy var FLORENICpinHolder: UICollectionView = {
-        // 初始化时先使用默认 layout，后续在 pinHolderS 中会被 sourcing() 覆盖
-        let layout = UICollectionViewFlowLayout()
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        // Storyboard 中背景色设置为 systemBackgroundColor [cite: 91]
-        // 如果您希望背景透明以显示控制器的深色背景，可改为 .clear
-        collectionView.backgroundColor = .systemBackground
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        return collectionView
+       
+        let FLORENIClayout = UICollectionViewFlowLayout()
+        let FLORENICcollectionView = UICollectionView(frame: .zero, collectionViewLayout: FLORENIClayout)
+
+        FLORENICcollectionView.backgroundColor = .clear
+        
+        FLORENICcollectionView.translatesAutoresizingMaskIntoConstraints = false
+        return FLORENICcollectionView
     }()
   
     // MARK: - Lifecycle
@@ -34,13 +30,13 @@ class FLORENICFloristHuddleController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        FLORENICsetupUI() // 加载纯代码 UI
+        FLORENICsetupUI()
         FLORENICpinHolderS()
         FLORENICcoolChain()
-        
-        // 注册 Cell
-        // 注意：如果是纯代码 Cell，请使用 register(FloristHuddleCell.self, ...)
         FLORENICpinHolder.register(FLORENICFloristHuddleCell.self, forCellWithReuseIdentifier: "FLORENICFloristHuddleCell")
+        
+        
+        
     }
     
     // MARK: - UI Setup & Constraints
@@ -51,42 +47,38 @@ class FLORENICFloristHuddleController: UIViewController {
         
         self.view.addSubview(FLORENIClogoImageView)
         self.view.addSubview(FLORENICpinHolder)
-        
-        let safeArea = self.view.safeAreaLayoutGuide
+        self.view.addSubview(FLORENICcreateAILabel)
+        FLORENICcreateAILabel.isHidden = true
+        let FLORENICsafeArea = self.view.safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
-            // --- Logo Image View Constraints [cite: 88-90, 95-96] ---
-            // Top: Safe Area Top
-            FLORENIClogoImageView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 0),
-            // CenterX: Superview CenterX
-            FLORENIClogoImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            // Width: 90
-            FLORENIClogoImageView.widthAnchor.constraint(equalToConstant: 90),
-            // Height: 44
-            FLORENIClogoImageView.heightAnchor.constraint(equalToConstant: 44),
+           
+            FLORENIClogoImageView.topAnchor.constraint(equalTo: FLORENICsafeArea.topAnchor, constant: 0),
             
-            // --- CollectionView (pinHolder) Constraints [cite: 90, 95-97] ---
-            // Top: Logo Image Bottom + 20
+            FLORENIClogoImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            
+            FLORENIClogoImageView.widthAnchor.constraint(equalToConstant: 90),
+          
+            FLORENIClogoImageView.heightAnchor.constraint(equalToConstant: 44),
+           
             FLORENICpinHolder.topAnchor.constraint(equalTo: FLORENIClogoImageView.bottomAnchor, constant: 20),
-            // Leading: Safe Area Leading + 20
-            FLORENICpinHolder.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 20),
-            // Trailing: Safe Area Trailing - 20
-            FLORENICpinHolder.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -20),
-            // Bottom: Superview Bottom (0)
+            
+            FLORENICpinHolder.leadingAnchor.constraint(equalTo: FLORENICsafeArea.leadingAnchor, constant: 20),
+           
+            FLORENICpinHolder.trailingAnchor.constraint(equalTo: FLORENICsafeArea.trailingAnchor, constant: -20),
+           
             FLORENICpinHolder.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0)
         ])
     }
-    
-    // MARK: - Existing Logic
-    
+ 
     func FLORENICsourcing() -> UICollectionViewFlowLayout {
-        let zareload = UICollectionViewFlowLayout()
-        // 此处逻辑保持原文件不变
-        zareload.itemSize = CGSize(width: (UIScreen.main.bounds.width - 40), height: 121)
-        zareload.minimumLineSpacing = 13
-        zareload.minimumInteritemSpacing = 13
-        zareload.scrollDirection = .vertical
-        return zareload
+        let FLORENICzareload = UICollectionViewFlowLayout()
+      
+        FLORENICzareload.itemSize = CGSize(width: (UIScreen.main.bounds.width - 40), height: 121)
+        FLORENICzareload.minimumLineSpacing = 13
+        FLORENICzareload.minimumInteritemSpacing = 13
+        FLORENICzareload.scrollDirection = .vertical
+        return FLORENICzareload
     }
     
     private func FLORENICpinHolderS() {
@@ -94,9 +86,51 @@ class FLORENICFloristHuddleController: UIViewController {
         FLORENICpinHolder.dataSource = self
         FLORENICpinHolder.collectionViewLayout = FLORENICsourcing()
     }
-    
+    private lazy var FLORENICcreateAILabel:UILabel = {
+        let FLORENIClabel = UILabel.init(frame: CGRect.init(x: 0, y: 250, width: 150, height: 100))
+        FLORENIClabel.center.x = UIScreen.main.bounds.width/2
+        FLORENIClabel.text = UIViewController.florenicFloralDesign(florenicIke: "Nxoo qmyesswsdaugzem uyoeft")
+        FLORENIClabel.font = UIFont.systemFont(ofSize: 15) // [cite: 144]
+        FLORENIClabel.textColor = .white
+        FLORENIClabel.textAlignment = .center
+       
+        return FLORENIClabel
+    }()
+
     private func FLORENICcoolChain() {
-        // 原文件为空方法，保留
+        FLORENICstartAnimatingindicater()
+        let uids =   UserDefaults.standard.object(forKey: "protea") as? Int ?? 0
+        let sopranoSax = ["hybrid":"13439215","perennial":uids] as [String : Any]
+        
+        FLORENICDreatorsController.florenicAesthetic(florenicColorPalette: sopranoSax, florenicTexture: "/aqeytrbxywz/bpdkuztmorsfa") { vocalAlign in
+            self.FLORENIChiddenAnimater()
+            guard
+                   let zoomInOut = vocalAlign as? Dictionary<String,Any> ,
+                 
+                    let midiLearn = zoomInOut[self.florenicFloralDesign(florenicIke: "dvaitta")] as? Array<Dictionary<String,Any>>
+                    
+            else {
+               
+            
+                return
+            }
+          
+            self.FLORENICswiftuSiaki = midiLearn.compactMap { item -> [String: Any] in
+                let dic = (item["annual"] as? [[String: Any]])?.first ?? [:]
+                if dic.isEmpty { return [:] }
+                return dic
+            }
+            if self.FLORENICswiftuSiaki.count == 0{
+                self.FLORENICcreateAILabel.isHidden = false
+            }else{
+                self.FLORENICcreateAILabel.isHidden = true
+            }
+            self.FLORENICpinHolder.reloadData()
+        } florenicGreenery: { bimama in
+            self.FLORENIChiddenAnimater()
+            self.FLORENICdisplayFloralMessage(FLORENICblossomText: bimama.localizedDescription, FLORENICgardenStyle: .FLORENICvineWarning)
+        }
+        
     }
 }
 
@@ -108,11 +142,35 @@ extension FLORENICFloristHuddleController: UICollectionViewDelegate, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let sourcing = collectionView.dequeueReusableCell(withReuseIdentifier: "FLORENICFloristHuddleCell", for: indexPath) as! FLORENICFloristHuddleCell
-        return sourcing
+        let FLORENICsourcing = collectionView.dequeueReusableCell(withReuseIdentifier: "FLORENICFloristHuddleCell", for: indexPath) as! FLORENICFloristHuddleCell
+        
+        
+        let FLORENIC = FLORENICswiftuSiaki[indexPath.row]
+        FLORENICsourcing.FLORENICKnifeImageView.FLORENICloadImage(from: FLORENIC["accent"] as? String  ?? "" ) 
+        FLORENICsourcing.FLORENICWaterTubeLabel.text = FLORENIC["filler"] as? String
+        FLORENICsourcing.FLORENICStructureLabel.text = FLORENIC["blossom"] as? String
+        
+        FLORENICsourcing.FLORENICColorantButton.tag = indexPath.row
+        FLORENICsourcing.FLORENICColorantButton.addTarget(self, action: #selector(FLORENICvall(bu:)), for: .touchUpInside)
+        
+        return FLORENICsourcing
     }
     
+    @objc func FLORENICvall(bu:UIButton)  {
+        let FLORENICuvID = FLORENICswiftuSiaki[bu.tag]["greenery"] as? Int ?? 0
+    
+       let FLORENICsctive = FLORENICDreatorsController.init(_florenicBotanical: FLORENICSaturationTape.FLORENICfragrance.FLORENICperformanceMacro(FLORENICmacAutodesc: "\(FLORENICuvID)" + self.florenicFloralDesign(florenicIke: "CnablvlqVoiadkegon=b1")))
+       FLORENICsctive.hidesBottomBarWhenPushed = true
+       self.navigationController?.pushViewController(FLORENICsctive, animated: true)
+   
+   }
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let uvID = FLORENICswiftuSiaki[indexPath.row]["greenery"] as? Int ?? 0
+    
+       let FLORENICsctive = FLORENICDreatorsController.init(_florenicBotanical: FLORENICSaturationTape.FLORENICpricha.FLORENICperformanceMacro(FLORENICmacAutodesc: "\(uvID)"))
+       FLORENICsctive.hidesBottomBarWhenPushed = true
+       self.navigationController?.pushViewController(FLORENICsctive, animated: true)
     }
 }

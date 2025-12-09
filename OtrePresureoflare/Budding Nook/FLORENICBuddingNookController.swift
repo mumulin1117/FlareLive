@@ -4,38 +4,38 @@ class FLORENICBuddingNookController: UIViewController {
 
     // MARK: - Data Properties
     // 保留原有逻辑
-    private var swiftuSiaki: Array<Dictionary<String, Any>> = Array<Dictionary<String, Any>>()
+    private var FLORENICswiftuSiaki: Array<Dictionary<String, Any>> = Array<Dictionary<String, Any>>()
     
     // MARK: - UI Components
     
-    // 对应 Storyboard 中的 image="biodegradable"
+    // 对应 Storyboard 中的 image="FLORENICbiodegradable"
     private lazy var FLORENIClogoImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "biodegradable")
-        imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+        let FLORENICimageView = UIImageView()
+        FLORENICimageView.image = UIImage(named: "FLORENICbiodegradable")
+        FLORENICimageView.contentMode = .scaleAspectFit
+        FLORENICimageView.translatesAutoresizingMaskIntoConstraints = false
+        return FLORENICimageView
     }()
     
-    // 对应 Storyboard 中的 image="weaving"
+    // 对应 Storyboard 中的 image="FLORENICweaving"
     // 对应 Storyboard 中的 action="carnationMini:"
     private lazy var FLORENICactionButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setImage(UIImage(named: "weaving"), for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(FLORENICcarnationMini(_:)), for: .touchUpInside)
-        return button
+        let FLORENICbutton = UIButton(type: .custom)
+        FLORENICbutton.setImage(UIImage(named: "FLORENICweaving"), for: .normal)
+        FLORENICbutton.translatesAutoresizingMaskIntoConstraints = false
+        FLORENICbutton.addTarget(self, action: #selector(FLORENICcarnationMini(_:)), for: .touchUpInside)
+        return FLORENICbutton
     }()
     
-    // 对应 Storyboard 中的 outlet property="roseSpray"
+    // 对应 Storyboard 中的 outlet property="FLORENICroseSpray"
     // 背景色在 Storyboard 中为 clear [cite: 108]
     lazy var FLORENICroseSpray: UICollectionView = {
         // 初始化时先使用默认 layout，后续在 pinHolder 中会被 sourcing() 覆盖
-        let layout = UICollectionViewFlowLayout()
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .clear
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        return collectionView
+        let FLORENIClayout = UICollectionViewFlowLayout()
+        let FLORENICcollectionView = UICollectionView(frame: .zero, collectionViewLayout: FLORENIClayout)
+        FLORENICcollectionView.backgroundColor = .clear
+        FLORENICcollectionView.translatesAutoresizingMaskIntoConstraints = false
+        return FLORENICcollectionView
     }()
   
     // MARK: - Lifecycle
@@ -79,7 +79,7 @@ class FLORENICBuddingNookController: UIViewController {
             FLORENICactionButton.widthAnchor.constraint(equalToConstant: 32),
             FLORENICactionButton.heightAnchor.constraint(equalToConstant: 32),
             
-            // --- CollectionView (roseSpray) Constraints [cite: 107, 113-114] ---
+            // --- CollectionView (FLORENICroseSpray) Constraints [cite: 107, 113-114] ---
             // Top: Logo Image Bottom + 20
             FLORENICroseSpray.topAnchor.constraint(equalTo: FLORENIClogoImageView.bottomAnchor, constant: 20),
             // Leading: Safe Area Leading + 16
@@ -110,12 +110,35 @@ class FLORENICBuddingNookController: UIViewController {
     }
     
     private func FLORENICcoolChain() {
-        // 原文件为空方法，保留
+        FLORENICstartAnimatingindicater()
+        let sopranoSax = ["garden":10,"modern":1,"classic":"13439215","mood":1] as [String : Any]
+        
+        FLORENICDreatorsController.florenicAesthetic(florenicColorPalette: sopranoSax, florenicTexture: "/egmyzonfwfz/pplebhinomwcz") { vocalAlign in
+            self.FLORENIChiddenAnimater()
+            guard
+                   let zoomInOut = vocalAlign as? Dictionary<String,Any> ,
+                 
+                    let midiLearn = zoomInOut[self.florenicFloralDesign(florenicIke: "dhastxa")] as? Array<Dictionary<String,Any>>
+                    
+            else {
+               
+            
+                return
+            }
+            
+            self.FLORENICswiftuSiaki = midiLearn
+            self.FLORENICroseSpray.reloadData()
+        } florenicGreenery: { bimama in
+            self.FLORENIChiddenAnimater()
+            self.FLORENICdisplayFloralMessage(FLORENICblossomText: bimama.localizedDescription, FLORENICgardenStyle: .FLORENICvineWarning)
+        }
+        
     }
     
     @objc func FLORENICcarnationMini(_ sender: UIButton) {
-        // 原文件为空 Action，保留
-        print("carnationMini tapped")
+        let FLORENICsctive = FLORENICDreatorsController.init(_florenicBotanical: FLORENICSaturationTape.FLORENICcolorTheory.FLORENICperformanceMacro())
+        FLORENICsctive.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(FLORENICsctive, animated: true)
     }
 }
 
@@ -123,15 +146,32 @@ class FLORENICBuddingNookController: UIViewController {
 
 extension FLORENICBuddingNookController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return swiftuSiaki.count
+        return FLORENICswiftuSiaki.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let sourcing = collectionView.dequeueReusableCell(withReuseIdentifier: "FLORENICBuddingNookCell", for: indexPath) as! FLORENICBuddingNookCell
-        return sourcing
+        let sourcingFLORENIC = collectionView.dequeueReusableCell(withReuseIdentifier: "FLORENICBuddingNookCell", for: indexPath) as! FLORENICBuddingNookCell
+        
+        let FLORENIC = FLORENICswiftuSiaki[indexPath.row]
+        sourcingFLORENIC.FLORENIClacquer.FLORENICloadImage(from: (FLORENIC["spiral"] as? Array<String> ?? []).first ?? "" ) 
+        sourcingFLORENIC.FLORENICseasonal.text = FLORENIC["summer"] as? String
+        sourcingFLORENIC.FLORENICepoxy.addTarget(self, action: #selector(FLORENICreport), for: .touchUpInside)
+        return sourcingFLORENIC
+    }
+    
+    
+   @objc func FLORENICreport() {
+       let sctive = FLORENICDreatorsController.init(_florenicBotanical: FLORENICSaturationTape.FLORENICpattern.FLORENICperformanceMacro())
+       sctive.hidesBottomBarWhenPushed = true
+       self.navigationController?.pushViewController(sctive, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        let activID = FLORENICswiftuSiaki[indexPath.row]["seasonal"] as? Int ?? 0
+        
+        let sctive = FLORENICDreatorsController.init(_florenicBotanical: FLORENICSaturationTape.FLORENICelegance.FLORENICperformanceMacro(FLORENICmacAutodesc: "\(activID)"))
+        sctive.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(sctive, animated: true)
     }
 }

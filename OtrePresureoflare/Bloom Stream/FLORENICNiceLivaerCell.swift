@@ -2,7 +2,7 @@
 //  FLORENICNiceLivaerCell.swift
 //  OtrePresureoflare
 //
-//  Created by mumu on 2025/12/8.
+//  Created by  on 2025/12/8.
 //
 
 
@@ -11,39 +11,43 @@ import UIKit
 class FLORENICNiceLivaerCell: UICollectionViewCell {
 
 
-    private lazy var FLORENICMonsteraImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill // contentMode="scaleAspectFill"
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+     lazy var FLORENICMonsteraImageView: UIImageView = {
+        let FLORENICimageView = UIImageView()
+        FLORENICimageView.contentMode = .scaleAspectFill // contentMode="scaleAspectFill"
+        FLORENICimageView.clipsToBounds = true
+        FLORENICimageView.backgroundColor = .black
+        FLORENICimageView.layer.cornerRadius = 20
+        FLORENICimageView.layer.masksToBounds = true
+        FLORENICimageView.translatesAutoresizingMaskIntoConstraints = false
+        return FLORENICimageView
     }()
     
   
-    private lazy var FLORENICPittosporumImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "knife") // image="knife"
-        imageView.contentMode = .scaleToFill // contentMode="scaleToFill"
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+     lazy var FLORENICPittosporumImageView: UIImageView = {
+        let FLORENICimageView = UIImageView()
+        FLORENICimageView.image = UIImage(named: "FLORENICknife") // image="FLORENICknife"
+        FLORENICimageView.contentMode = .scaleToFill // contentMode="scaleToFill"
+        FLORENICimageView.clipsToBounds = true
+        FLORENICimageView.translatesAutoresizingMaskIntoConstraints = false
+        return FLORENICimageView
     }()
     
   
-    private lazy var FLORENICAsparagusFernLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Label" // Default text
-        label.font = UIFont.systemFont(ofSize: 14, weight: .medium) // weight="medium" pointSize="14"
+     lazy var FLORENICAsparagusFernLabel: UILabel = {
+        let FLORENIClabel = UILabel()
+       
+        FLORENIClabel.font = UIFont.systemFont(ofSize: 14, weight: .medium) // weight="medium" pointSize="14"
         // textColor: White
-        label.textColor = .white 
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+        FLORENIClabel.textColor = .white 
+        FLORENIClabel.translatesAutoresizingMaskIntoConstraints = false
+        return FLORENIClabel
     }()
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupFLORENICUI()
+        self.backgroundColor = .clear
         setupFLORENICConstraints()
     }
     
@@ -73,8 +77,9 @@ class FLORENICNiceLivaerCell: UICollectionViewCell {
             FLORENICPittosporumImageView.heightAnchor.constraint(equalToConstant: 16), // height="16"
 
             // 3. FLORENICAsparagusFernLabel (Bottom Leading)
-            FLORENICAsparagusFernLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10), // leading="10"
-            FLORENICAsparagusFernLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10) // bottom="-10"
+            FLORENICAsparagusFernLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10), //
+            FLORENICAsparagusFernLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            FLORENICAsparagusFernLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
         ])
     }
     

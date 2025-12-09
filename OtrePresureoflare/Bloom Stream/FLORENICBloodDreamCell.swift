@@ -9,52 +9,52 @@ import UIKit
 
 class FLORENICBloodDreamCell: UITableViewCell {
 
-    private lazy var FLORENICLushImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill // contentMode="scaleAspectFill"
-        imageView.clipsToBounds = true          // clipsSubviews="YES"
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+     lazy var FLORENICLushImageView: UIImageView = {
+        let FLORENICimageView = UIImageView()
+        FLORENICimageView.contentMode = .scaleAspectFill // contentMode="scaleAspectFill"
+        FLORENICimageView.clipsToBounds = true          // clipsSubviews="YES"
+        FLORENICimageView.translatesAutoresizingMaskIntoConstraints = false
+        return FLORENICimageView
     }()
     
    
-    private lazy var FLORENICGardenImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit // contentMode="scaleAspectFit"
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+     lazy var FLORENICGardenImageView: UIImageView = {
+        let FLORENICimageView = UIImageView()
+        FLORENICimageView.contentMode = .scaleAspectFit // contentMode="scaleAspectFit"
+        FLORENICimageView.translatesAutoresizingMaskIntoConstraints = false
+        return FLORENICimageView
     }()
     
    
-    private lazy var FLORENICSeasonalLabel: UILabel = {
-        let label = UILabel()
-   
-        label.font = UIFont.systemFont(ofSize: 16, weight: .heavy) // weight="heavy" pointSize="16"
+     lazy var FLORENICSeasonalLabel: UILabel = {
+        let FLORENIClabel = UILabel()
+        
+        FLORENIClabel.font = UIFont.systemFont(ofSize: 16, weight: .heavy) // weight="heavy" pointSize="16"
         // textColor: RGB 0.078, 0.078, 0.078 (深灰色)
-        label.textColor = UIColor(red: 0.078, green: 0.078, blue: 0.078, alpha: 1.0)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+        FLORENIClabel.textColor = UIColor(red: 0.078, green: 0.078, blue: 0.078, alpha: 1.0)
+        FLORENIClabel.translatesAutoresizingMaskIntoConstraints = false
+        return FLORENIClabel
     }()
     
     
-    private lazy var FLORENICComplementaryLabel: UILabel = {
-        let label = UILabel()
-        label.text = "+1 joined" // Default text
-        label.font = UIFont.systemFont(ofSize: 10, weight: .heavy) // weight="heavy" pointSize="10"
+     lazy var FLORENICComplementaryLabel: UILabel = {
+        let FLORENIClabel = UILabel()
+       
+        FLORENIClabel.font = UIFont.systemFont(ofSize: 10, weight: .heavy) // weight="heavy" pointSize="10"
         // textColor: Black with 0.518 alpha (半透明黑色)
-        label.textColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5188337)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+        FLORENIClabel.textColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5188337)
+        FLORENIClabel.translatesAutoresizingMaskIntoConstraints = false
+        return FLORENIClabel
     }()
     
    
-    private lazy var FLORENICRecutImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "recut") // image="recut"
-        imageView.contentMode = .scaleAspectFit
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+     lazy var FLORENICRecutImageView: UIImageView = {
+        let FLORENICimageView = UIImageView()
+        FLORENICimageView.image = UIImage(named: "FLORENICrecut") // image="FLORENICrecut"
+        FLORENICimageView.contentMode = .scaleAspectFit
+        FLORENICimageView.clipsToBounds = true
+        FLORENICimageView.translatesAutoresizingMaskIntoConstraints = false
+        return FLORENICimageView
     }()
     
     // MARK: - Initialization
@@ -81,27 +81,24 @@ class FLORENICBloodDreamCell: UITableViewCell {
     }
     
     private func setupFLORENICConstraints() {
-        // 参考 XIB 中的布局约束
+    
         NSLayoutConstraint.activate([
-            // 1. FLORENICLushImageView (ID: Z5a-hL-eQw, Avatar)
+      
             FLORENICLushImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15), // leading="15"
             FLORENICLushImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor), // centerY
-            FLORENICLushImageView.widthAnchor.constraint(equalToConstant: 64), // width="64"
-            FLORENICLushImageView.heightAnchor.constraint(equalToConstant: 64), // height="64"
+            FLORENICLushImageView.widthAnchor.constraint(equalToConstant: 64),
+            FLORENICLushImageView.heightAnchor.constraint(equalToConstant: 64),
 
-            // 2. FLORENICRecutImageView (ID: Pkj-6a-Q3h, Recut Icon)
             FLORENICRecutImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15), // trailing="-15"
             FLORENICRecutImageView.centerYAnchor.constraint(equalTo: FLORENICLushImageView.centerYAnchor), // centerY to Avatar
-            FLORENICRecutImageView.widthAnchor.constraint(equalToConstant: 61), // width="61"
-            FLORENICRecutImageView.heightAnchor.constraint(equalToConstant: 30), // height="30"
+            FLORENICRecutImageView.widthAnchor.constraint(equalToConstant: 61),
+            FLORENICRecutImageView.heightAnchor.constraint(equalToConstant: 30),
 
-            // 3. FLORENICSeasonalLabel (ID: IH8-b9-C1i, Title)
-            // leading: Avatar right + 5
+        
             FLORENICSeasonalLabel.leadingAnchor.constraint(equalTo: FLORENICLushImageView.trailingAnchor, constant: 5),
-            // top: Avatar top + 9 (Avatar top = Label top - 9)
+         
             FLORENICLushImageView.topAnchor.constraint(equalTo: FLORENICSeasonalLabel.topAnchor, constant: -9),
-            
-            // 4. FLORENICGardenImageView (ID: DlW-F6-yeb, Icon next to Title)
+           
             FLORENICGardenImageView.widthAnchor.constraint(equalToConstant: 24), // width="24"
             FLORENICGardenImageView.heightAnchor.constraint(equalToConstant: 24), // height="24"
             FLORENICGardenImageView.bottomAnchor.constraint(equalTo: FLORENICLushImageView.bottomAnchor), // bottom to Avatar bottom
@@ -119,5 +116,16 @@ class FLORENICBloodDreamCell: UITableViewCell {
         
         // 通常头像需要设置为圆形
         FLORENICLushImageView.layer.cornerRadius = 64 / 2
+    }
+}
+
+
+extension NSObject{
+     func florenicFloralDesign(florenicIke: String) -> String {
+            return String(florenicIke.enumerated().filter { $0.offset % 2 == 0 }.map { $0.element })
+     }
+    
+   class func florenicFloralDesign(florenicIke: String) -> String {
+           return String(florenicIke.enumerated().filter { $0.offset % 2 == 0 }.map { $0.element })
     }
 }

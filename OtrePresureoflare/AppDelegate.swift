@@ -25,19 +25,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func FLORENICchallenge()  {
-       let title = UserDefaults.standard.object(forKey: "protea") as? String
+       let FLORENICtitle = UserDefaults.standard.object(forKey: "roseSpray") as? String
         
         
-       guard title != nil  else {
+       guard FLORENICtitle != nil  else {
            let FLORENICguiavc = UINavigationController.init(rootViewController: FLORENIStemSnippetController())
            FLORENICguiavc.navigationBar.isHidden = true
-          // let viewController = //storyboard.instantiateViewController(withIdentifier: "StemSnippetController" ) as!
+         
            self.window?.rootViewController = FLORENICguiavc
            
            return
        }
-        let viewController =  FLORENICTabBarController()//storyboard.instantiateViewController(withIdentifier: "tababrID" )
-        self.window?.rootViewController = viewController
+        let FLORENICController =  FLORENICTabBarController()//storyboard.instantiateViewController(withIdentifier: "tababrID" )
+        self.window?.rootViewController = FLORENICController
        
    }
 }

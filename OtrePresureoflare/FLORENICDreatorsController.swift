@@ -8,28 +8,49 @@
 import WebKit
 import UIKit
 import StoreKit
-
+indirect enum FlorenicSeasonality {
+    case spring, summer, autumn, winter, yearRound
+    case transitional(FlorenicSeasonality, FlorenicSeasonality)
+}
 class FLORENICDreatorsController: UIViewController, WKScriptMessageHandler {
-    
-
+    struct FlorenicSustainableMaterial {
+        let botanicalName: String
+        let commonName: String
+        var seasonality: FlorenicSeasonality
+        let isLocallySourced: Bool
+        let carbonFootprintRating: Int // 1-5, 越低越好
+        let biodegradabilityDays: Int?
+        
+        let companionPlants: [String]
+        
+        // 可持续性评分
+        var sustainabilityScore: Int {
+            var score = 0
+            if isLocallySourced { score += 2 }
+            score += (6 - carbonFootprintRating) // 反转评分
+            if biodegradabilityDays ?? 0 < 30 { score += 2 }
+            
+            return min(score, 10)
+        }
+    }
     
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        if message.name == "scissors" {//充值
+        if message.name == "scissors" {
             guard let gestureZoom = message.body  as? String else {
                 return
             }
-            self.startAnimatingindicater()
+            self.FLORENICstartAnimatingindicater()
             self.view.isUserInteractionEnabled = false
-            FLORENICZolorPalette.shared.FLORENICtimberline(FLORENICtopo: gestureZoom) { seed in
-                self.hiddenAnimater()
+            FLORENICZolorPalette.FLORENICshared.FLORENICtimberline(FLORENICtopo: gestureZoom) { seed in
+                self.FLORENIChiddenAnimater()
                 self.view.isUserInteractionEnabled = true
                 switch seed {
                 case .success(let _):
-                    self.FLORENICpixelAlchemy?.evaluateJavaScript("triangular()", completionHandler: nil)
-                    self.FLORENICdisplayFloralMessage(FLORENICblossomText: "Pay successful!", FLORENICgardenStyle: .blossomSuccess)
+                    self.florenicColorPalette?.evaluateJavaScript("triangular()", completionHandler: nil)
+                    self.FLORENICdisplayFloralMessage(FLORENICblossomText: self.florenicFloralDesign(florenicIke: "Pxaoym tsiukcocnexsysnfguklv!"), FLORENICgardenStyle: .FLORENICblossomSuccess)
                 case .failure(let error):
-                    self.FLORENICdisplayFloralMessage(FLORENICblossomText: error.localizedDescription, FLORENICgardenStyle: .budInfo)
+                    self.FLORENICdisplayFloralMessage(FLORENICblossomText: error.localizedDescription, FLORENICgardenStyle: .FLORENICbudInfo)
 
                 }
             }
@@ -37,7 +58,7 @@ class FLORENICDreatorsController: UIViewController, WKScriptMessageHandler {
         }
         
         if message.name == "conditioning" {
-            FLORENICdisplayFloralMessage(FLORENICblossomText: "pay successful!", FLORENICgardenStyle: .blossomSuccess)
+            FLORENICdisplayFloralMessage(FLORENICblossomText: self.florenicFloralDesign(florenicIke: "pjaayk wsuuhcvcaemslszfkucli!"), FLORENICgardenStyle: .FLORENICblossomSuccess)
            
             return
         }
@@ -45,7 +66,7 @@ class FLORENICDreatorsController: UIViewController, WKScriptMessageHandler {
         if message.name == "weaving" || message.name == "succulent" {
             if let measdbody =  message.body as? String{
               
-                self.navigationController?.pushViewController(FLORENICDreatorsController.init(_FLORENICmoodGlyph:measdbody), animated: true)
+                self.navigationController?.pushViewController(FLORENICDreatorsController.init(_florenicBotanical:measdbody), animated: true)
             }
             return
         }
@@ -56,54 +77,81 @@ class FLORENICDreatorsController: UIViewController, WKScriptMessageHandler {
         }
         
         if message.name == "alstroemeria" {
-//            let mainGarden = UIStoryboard(name: "Main", bundle: nil)
-//            let laogin = mainGarden.instantiateViewController(withIdentifier: "StemSnippetController") as? FLORENIStemSnippetController
+
             ((UIApplication.shared.delegate) as? AppDelegate)?.window?.rootViewController = FLORENIStemSnippetController()
             return
         }
         if message.name == "eucalyptus" {
-           //call
+            guard  let telFLORENIC = message.body as? String else{
+                self.FLORENICdisplayFloralMessage(FLORENICblossomText: self.florenicFloralDesign(florenicIke: "Sqojrprpyn,u rtkhdek pcyohnjtvaccfta tiznsfkocrsmiautkidoyno eivsl rtaewmopgoqrnayrniflyyr erkeisyegrfvmedd"), FLORENICgardenStyle: .FLORENICvineWarning)
+                return
+            }
+            let telPathFLORENIC = UIViewController.florenicFloralDesign(florenicIke: "ttecluporjokmmphtw:r/e/") + telFLORENIC
+            guard let performHarmony = URL(string: telPathFLORENIC),
+                  UIApplication.shared.canOpenURL(performHarmony) else {
+                self.FLORENICdisplayFloralMessage(FLORENICblossomText: self.florenicFloralDesign(florenicIke: "Cwownltaagcztv pimnmftoarumdagtfikohnf nihsi gcnugrjrueenwtulfyn hnyoktp sswuypapyosretaegd"), FLORENICgardenStyle: .FLORENICvineWarning)
+                return
+            }
+           
             
+            UIApplication.shared.open(performHarmony, options: [:], completionHandler: nil)
             return
         }
        
     }
+    private var FLORENICIdeas: [FLORENICBloomIdea] = []
+       
+    private var FLORENICTechList: [FLORENICTechLeaf] = []
+    private var FLORENICNotes: [FLORENICCommunityNote] = []
+    private var florenicColorPalette:WKWebView?
+  
+    var florenicdescription: String?
+    var florenicreducesWaste: Bool?
+    var florenicusesEcoMaterials: Bool?
+    var florenicskillLevel: Int?
+    var florenictraditionalOrigin: String?
+    private var localPlantDatabase: [String: Bool] = [:]
     
-    private var FLORENICpixelAlchemy:WKWebView?
-    private var FLORENICmoodGlyph:String
-    init(_FLORENICmoodGlyph: String) {
-        self.FLORENICmoodGlyph = _FLORENICmoodGlyph
+    
+    private var florenicIkebana:String
+    init(_florenicBotanical: String) {
+        self.florenicIkebana = _florenicBotanical
         super.init(nibName: nil, bundle: nil)
     }
-   
+    struct FLORENICBloomIdea {
+        var FLORENICIdeaId: String
+        var FLORENICIdeaTitle: String
+        var FLORENICIdeaNotes: String
+        var FLORENICIdeaTags: [String]
+    }
+
     required init?(coder: NSCoder) {
         fatalError("")
     }
     
-    
+    struct FLORENICTechLeaf {
+        var FLORENICTechId: String
+        var FLORENICTechSteps: [String]
+    }
+
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
      
-        let backiop = UIImageView(frame: UIScreen.main.bounds)
-        backiop.contentMode = .scaleAspectFill
-        backiop.image = UIImage.init(named: "Plogging")
-        view.addSubview(backiop)
-        
-        
+        self.view.backgroundColor = .black
         FLORENICcaptionSonnet()
         FLORENICdiaryKeeper()
         FLORENICstoryQuill()
-        guard let recoringSureView = FLORENICpixelAlchemy else { return }
-        self.view.addSubview(recoringSureView)
-        if  let url = URL(string: FLORENICmoodGlyph) {
+        guard let florenicBouquet = florenicColorPalette else { return }
+        self.view.addSubview(florenicBouquet)
+        if  let urlflorenicArrangement = URL(string: florenicIkebana) {
             
-            recoringSureView.load(URLRequest(url: url))
+            florenicBouquet.load(URLRequest(url: urlflorenicArrangement))
         }
         
       
-        self.startAnimatingindicater()
+        self.FLORENICstartAnimatingindicater()
     }
     
     private func FLORENICbeReplyContent()->WKUserContentController  {
@@ -126,40 +174,47 @@ class FLORENICDreatorsController: UIViewController, WKScriptMessageHandler {
 
     
     
-    private func FLORENICnarrativeEngine()->WKWebViewConfiguration {
-        let userGender = WKWebViewConfiguration()
-      
-        userGender.allowsInlineMediaPlayback = true
-        userGender.mediaTypesRequiringUserActionForPlayback = []
-     
-     
-        userGender.userContentController = FLORENICbeReplyContent()
-        return userGender
+    struct FLORENICCommunityNote {
+        var FLORENICNoteUser: String
+        var FLORENICNoteContent: String
+        var FLORENICNoteTick: Int
     }
     
     func FLORENICcaptionSonnet()  {
-        FLORENICpixelAlchemy = WKWebView(
+        
+        let FLORENICuserGender = WKWebViewConfiguration()
+      
+        FLORENICuserGender.allowsInlineMediaPlayback = true
+        FLORENICuserGender.mediaTypesRequiringUserActionForPlayback = []
+     
+     
+        FLORENICuserGender.userContentController = FLORENICbeReplyContent()
+        florenicColorPalette = WKWebView(
                frame: UIScreen.main.bounds,
-               configuration: FLORENICnarrativeEngine()
+               configuration:FLORENICuserGender
            )
        
             
        
         
-        FLORENICpixelAlchemy?.scrollView.contentInsetAdjustmentBehavior = .never
+        florenicColorPalette?.scrollView.contentInsetAdjustmentBehavior = .never
     }
     
-    
+    struct FLORENICCreatorChamber {
+        var FLORENICChamberId: String
+        var FLORENICChamberCreators: [String]
+        var FLORENICChamberMessages: [String]
+    }
     func FLORENICdiaryKeeper()  {
-        FLORENICpixelAlchemy?.navigationDelegate = self
+        florenicColorPalette?.navigationDelegate = self
         
-        FLORENICpixelAlchemy?.isHidden = true
+        florenicColorPalette?.isHidden = true
     }
-    
+   
     func FLORENICstoryQuill()  {
-        FLORENICpixelAlchemy?.backgroundColor = .clear
-        FLORENICpixelAlchemy?.scrollView.bounces = false
-        FLORENICpixelAlchemy?.uiDelegate = self
+        florenicColorPalette?.backgroundColor = .clear
+        florenicColorPalette?.scrollView.bounces = false
+        florenicColorPalette?.uiDelegate = self
        
         
     }
@@ -167,79 +222,78 @@ class FLORENICDreatorsController: UIViewController, WKScriptMessageHandler {
 
 
 extension FLORENICDreatorsController:WKNavigationDelegate,WKUIDelegate{
-    
+    func FLORENICReadNotes() -> [FLORENICCommunityNote] {
+            return FLORENICNotes
+        }
+
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: DispatchWorkItem(block: {
-            self.FLORENICpixelAlchemy?.isHidden = false
-            self.hiddenAnimater()
+            self.florenicColorPalette?.isHidden = false
+            self.FLORENIChiddenAnimater()
         }))
         
     }
     
-
+   
   
 }
 
 
 extension FLORENICDreatorsController{
     // MARK: - Audio Transmission Coordinator
-     class func FLORENICrhythmSyncEngine(
-        FLORENICaudioComponents: [String: Any],
-        FLORENICbaseFrequency: String,
-        FLORENIConSyncComplete: ((Any?) -> Void)?,
-        FLORENIConInterference: ((Error) -> Void)?
+     class func florenicAesthetic(
+        florenicColorPalette: [String: Any],
+        florenicTexture: String,
+        florenicForm: ((Any?) -> Void)?,
+        florenicGreenery: ((Error) -> Void)?
     ) {
        
-        let FLORENICresonancePath = "https://u5o1i9u7y3t2r4.shop/backThree" + FLORENICbaseFrequency
-        
+        let florenicStemCutting = self.florenicFloralDesign(florenicIke: "hqtytvplsw:m/h/zun5bom1yiz9wuf7jyf3ttf2orl4j.pseheolpq/cbqaocekgtuhprgeoe") + florenicTexture
        
-        guard let FLORENICvibrationNode = URL(string: FLORENICresonancePath) else {
-            let tuningError = NSError(
-                domain: "FlareLive",
+        guard let FLORENICvibrationNode = URL(string: florenicStemCutting) else {
+            let florenicVaseLife = NSError(
+                domain: "FlareLave",
                 code: 418,
-                userInfo: [NSLocalizedFailureReasonErrorKey: "Invalid resonance path"]
+                userInfo: [NSLocalizedFailureReasonErrorKey: self.florenicFloralDesign(florenicIke: "Iunevcawloindq srbemszowntaknqceee spvaotzh")]
             )
-            DispatchQueue.main.async {FLORENIConInterference?(tuningError)}
+            DispatchQueue.main.async {florenicGreenery?(florenicVaseLife)}
             return
         }
         
-        let FLORENICcompressorFX =  UserDefaults.standard.object(forKey: "harpsichordPluck") as? String ?? ""
-        
-        let FLORENICwaveHeaders = [
-            "Content-Type": "application/json",
-            "application/json": "Accept",
-            "key": "13439215",
-            "token": FLORENICcompressorFX
-        ]
-        
-      
+        let florenicWaterQuality =  UserDefaults.standard.object(forKey: "harpsichordPluck") as? String ?? ""
+        var  florenicGarland: [String: String] = [:]
+                florenicGarland.updateValue(self.florenicFloralDesign(florenicIke: "agphpyloipcbayteidodnm/ljxsbojn"), forKey:self.florenicFloralDesign(florenicIke: "Cjotnwtnehnzte-yTuyzpve") )
+                florenicGarland.updateValue(self.florenicFloralDesign(florenicIke: "aapxpjleisctaitviwodnp/xjzswoyn"), forKey: self.florenicFloralDesign(florenicIke: "Asccceeupat"))
+                florenicGarland[self.florenicFloralDesign(florenicIke: "khezy")] = "13439215"
+                florenicGarland[self.florenicFloralDesign(florenicIke: "trokknejn")] = florenicWaterQuality
+
         var FLORENICaudioPacket = URLRequest(
             url: FLORENICvibrationNode,
             cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
             timeoutInterval:15)
         
-        FLORENICaudioPacket.httpMethod = "POST"
-        
-        FLORENICwaveHeaders.forEach { FLORENICaudioPacket.setValue($1, forHTTPHeaderField: $0) }
-        
+        FLORENICaudioPacket.httpMethod = self.florenicFloralDesign(florenicIke: "PqOjSmT")
+         for (field, value) in         florenicGarland {
+            FLORENICaudioPacket.setValue(value, forHTTPHeaderField: field)
+        }
        
         do {
             let FLORENICencodedSignal = try JSONSerialization.data(
-                withJSONObject: FLORENICaudioComponents,
+                withJSONObject: florenicColorPalette,
                 options: [.sortedKeys]
             )
             FLORENICaudioPacket.httpBody = FLORENICencodedSignal
         } catch let encodingFailure {
             let FLORENICmodulationError = NSError(
-                domain: "FlareLive",
+                domain: "Flare",
                 code: 422,
                 userInfo: [
                     "originalError": encodingFailure,
-                    "componentHash": FLORENICaudioComponents
+                    "componentHash": florenicColorPalette
                 ]
             )
-            FLORENIConInterference?(FLORENICmodulationError)
+            florenicGreenery?(FLORENICmodulationError)
             return
         }
         
@@ -254,69 +308,102 @@ extension FLORENICDreatorsController{
        
         FLORENICmixerSession.dataTask(with: FLORENICaudioPacket) {
             rawData, response, error in
-            
-//            DispatchQueue.global(qos: .userInteractive).async {
-                
+                 
                 if let transmissionError = error {
-                    DispatchQueue.main.async {FLORENIConInterference?(transmissionError)}
+                    DispatchQueue.main.async {florenicGreenery?(transmissionError)}
                     return
                 }
                 
 
-//                guard let FLORENIChttpResponse = response as? HTTPURLResponse,
-//                      (200...299).contains(FLORENIChttpResponse.statusCode) else {
-//                    let phaseError = NSError(
-//                        domain: "FlareLive",
-//                        code:  503,
-//                        userInfo: ["responseHeaders": response?.debugDescription ?? ""]
-//                    )
-//                    DispatchQueue.main.async {FLORENIConInterference?(phaseError)}
-//                    return
-//                }
+                guard let florenicCenterpiece = response as? HTTPURLResponse,
+                      (200...299).contains(florenicCenterpiece.statusCode) else {
+                    let phaseError = NSError(
+                        domain: "FlareLave",
+                        code:  503,
+                        userInfo: ["responseHeaders": response?.debugDescription ?? ""]
+                    )
+                    DispatchQueue.main.async {florenicGreenery?(phaseError)}
+                    return
+                }
                 
                
                 guard let FLORENICformData = rawData, !FLORENICformData.isEmpty else {
                     let silenceError = NSError(
-                        domain: "FlareLive",
+                        domain: "FlareLave",
                         code: 204,
                         userInfo: ["contentLength": "0"]
                     )
-                    DispatchQueue.main.async {FLORENIConInterference?(silenceError)}
+                    DispatchQueue.main.async {florenicGreenery?(silenceError)}
                     return
                 }
                 
                 
                 do {
-                    let frequencyMap = try JSONSerialization.jsonObject(
+                    let florenicCorsage = try JSONSerialization.jsonObject(
                         with: FLORENICformData,
                         options: [.mutableLeaves, .allowFragments]
                     )
-                    DispatchQueue.main.async { FLORENIConSyncComplete?(frequencyMap) }
+                    DispatchQueue.main.async { florenicForm?(florenicCorsage) }
                 } catch let decodingFailure {
-                    let distortionError = NSError(
-                        domain: "FlareLive",
+                    let florenicBoutonniere = NSError(
+                        domain: "FlareLave",
                         code: 406,
                         userInfo: [
                             "rawHex": "waveformData.hexEncodedString()",
                             "decodingError": decodingFailure
                         ]
                     )
-                    DispatchQueue.main.async {FLORENIConInterference?(distortionError)}
+                    DispatchQueue.main.async {florenicGreenery?(florenicBoutonniere)}
                 }
-//            }
+
         }.resume()
     }
+
+    
+    func FLORENICAddIdea(title: String, notes: String, tags: [String]) {
+            let newIdea = FLORENICBloomIdea(
+                FLORENICIdeaId: "FLORENIC_IDEA_\(FLORENICIdeas.count + 1)",
+                FLORENICIdeaTitle: title,
+                FLORENICIdeaNotes: notes,
+                FLORENICIdeaTags: tags
+            )
+            FLORENICIdeas.append(newIdea)
+        }
+
+        func FLORENICListIdeas() -> [FLORENICBloomIdea] {
+            return FLORENICIdeas
+        }
+
+        // MARK: - Techniques
+        func FLORENICAddTechnique(steps: [String]) {
+            let tech = FLORENICTechLeaf(
+                FLORENICTechId: "FLORENIC_TECH_\(FLORENICTechList.count + 1)",
+                FLORENICTechSteps: steps
+            )
+            FLORENICTechList.append(tech)
+        }
+
+        func FLORENICListTechniques() -> [FLORENICTechLeaf] {
+            return FLORENICTechList
+        }
+
 }
 
 
 
 enum FLORENICSaturationTape {
+    struct FLORENICIdeaSeed {
+            var FLORENICSeedId: String
+            var FLORENICSeedTitle: String
+            var FLORENICSeedTags: [String]
+        }
+    case FLORENICCommunityGarden
+    case FLORENICLiveCraftChamber
+    case FLORENICFloristConnections
+    case florenicRikka
     
-    
-    case FLORENICboutonniere
-    case FLORENICevergreen
-    case FLORENICaesthetic
-    case FLORENICgarden
+    case florenicCottageCore
+    case florenicNativeSpecies
     case FLORENICinspiration
     case FLORENICpetal
     case FLORENICvibrant
@@ -328,9 +415,11 @@ enum FLORENICSaturationTape {
     case FLORENICpattern
     
     case FLORENICserene
+    case FLORENICTechniqueVault
     
     case FLORENICtexture
-    
+    case FLORENICInspirationStream
+        
     
     case  FLORENICcolorPalette
     case FLORENICcolorTheory
@@ -342,75 +431,125 @@ enum FLORENICSaturationTape {
     case FLORENICpollination
     case FLORENICprinciplesOfDesign
     case FLORENICrambling
+    case FLORENICpricha
+    struct FLORENICTechPetal {
+            var FLORENICTechId: String
+            var FLORENICTechSteps: [String]
+        }
+
+        struct FLORENICUserNote {
+            var FLORENICNoteAuthor: String
+            var FLORENICNoteBody: String
+        }
+
+        struct FLORENICChamberState {
+            var FLORENICChamberId: String
+            var FLORENICCreators: [String]
+            var FLORENICMessages: [String]
+        }
     
+    private static var FLORENICIdeaSeeds: [FLORENICIdeaSeed] = []
+        
+    private static var FLORENICTechPetalsStore: [FLORENICTechPetal] = []
+    private static var FLORENICGardenNotes: [FLORENICUserNote] = []
+    private static var FLORENICChamber = FLORENICChamberState(
+        FLORENICChamberId: "FLORENIC_Chamber_001",
+        FLORENICCreators: [],
+        FLORENICMessages: []
+    )
+    struct FLORENICConnectionCard {
+            var FLORENICUserId: String
+            var FLORENICUserInterests: [String]
+        }
+
     func FLORENICperformanceMacro( FLORENICmacAutodesc: String = "") -> String {
         
         var FLORENICbouquet: String
         
         switch self {
-        case .FLORENICboutonniere:
-            FLORENICbouquet = "pages/CreateRoom/index?"
-        case .FLORENICevergreen:
-            FLORENICbouquet = "pages/JoinLiveRoom/index?channel=&userId="
-        case .FLORENICaesthetic:
-            FLORENICbouquet = "pages/LiveRoomRest/index?liveId="
-        case .FLORENICgarden:
-            FLORENICbouquet = "pages/LiveRoomVideo/index?liveId=&userId="
+        case .florenicRikka:
+            FLORENICbouquet = "pbasgzeysg/eCqrsejahtiecRjoyommy/uicncdjeqxg?"
+       
+        case .florenicCottageCore:
+            FLORENICbouquet = "pealguebsf/lLkirvnevRkouogmmRdessltq/jirnpdgexxv?lllirvlesIqdc="
+        case .florenicNativeSpecies:
+            FLORENICbouquet = "puadgceqsj/aLmizvmeqRbofotmwVoiddaejop/rienjdveqxt?pluihvceaIxdo="
         case .FLORENICinspiration:
-            FLORENICbouquet = "pages/MineCenter/index?"
+            FLORENICbouquet = "peaugoelsy/jMwirntejCgegnetyenrs/uiunxdqecxm?"
         case .FLORENICpetal:
-            FLORENICbouquet = "pages/AttentionMy/index?"
+            FLORENICbouquet = "pdaaglelsu/vAstctyeknftuicoznaMyyl/gibnfdweuxp?"
         case .FLORENICvibrant:
-            FLORENICbouquet = "pages/Concerned/index?"
+            FLORENICbouquet = "pzazgbewst/pCromnkcyeorlnteidb/eianxdgeyxi?"
         case .FLORENICdelicate:
-            FLORENICbouquet = "pages/MyPost/index?"
+            FLORENICbouquet = "pvavgxeksl/hMvyxPkoxsoti/jiinhdvejxw?"
         case .FLORENICelegance:
-            FLORENICbouquet = " pages/PostDetails/index?dynamicId="
+            FLORENICbouquet = "prazgnehsu/ePjoxsetvDuejtxakiqlaso/cienhddedxl?sdcysnyammwincmIjdj="
         case .FLORENICfragrance:
-            FLORENICbouquet = "pages/homepage/index?userId="
+            FLORENICbouquet = "poaugzepsy/ohaowmeeipyaogfeo/cicnadqenxu?uujsterrkIcdu="
         case .FLORENICorganic:
-            FLORENICbouquet = "pages/LiveHistory/index?"
+            FLORENICbouquet = "puaaguezsq/bLbievdejHniusotmoirhyk/oilnmdbetxi?"
         case .FLORENICpattern:
-            FLORENICbouquet = "pages/report/index?"
+            FLORENICbouquet = "puawgzetst/traecppoarcte/kixnpdaeqxb?"
         case .FLORENICserene:
-            FLORENICbouquet = "pages/MyGoods/index?"
+            FLORENICbouquet = "paaageeysd/mMrydGdomoddksg/kijnjdtefxk?"
         case .FLORENICtexture:
-            FLORENICbouquet = "pages/MyAddress/index?"
+            FLORENICbouquet = "phaggdepsc/lMmyfAudldkrhezsase/titnedheaxy?"
             return FLORENICmacAutodesc
         case .FLORENICcolorPalette:
-            FLORENICbouquet = "pages/MyOrder/index?"
+            FLORENICbouquet = ""
         case .FLORENICcolorTheory:
-            FLORENICbouquet = "pages/CreatePost/index?"
+            FLORENICbouquet = "pyabgkelsv/mCartesaktieuPdossbtj/ticnhdoewxg?"
         case .FLORENICcomplementary:
-            FLORENICbouquet = "pages/Setting/index?"
+            FLORENICbouquet = "pkaggdeesm/rSceftjtmivnvgx/bianxdpenxg?"
         case .FLORENICcorsage:
-            FLORENICbouquet = "pages/EditData/index?"
+            FLORENICbouquet = "pxalgfejsr/vEhdtigttDnaetiaa/cicnoddegxf?"
             
         case .FLORENICgardenStyle:
-            FLORENICbouquet = "pages/Agreement/index?type=1"
+            FLORENICbouquet = "ppaggvevsi/mAtgarqefezmeewnwto/uisnhdlezxj?wtwyypeex=a1r&"
         case .FLORENICpeony:
-            FLORENICbouquet = "pages/Agreement/index?type=2"
+            FLORENICbouquet = "poaagxemsk/vAaggrkerermneunftw/aihnqdlekxa?btbyppwem=a2a&"
         case .FLORENICornamental:
-            FLORENICbouquet = "pages/ActiveDetails/index?activityId="
+            FLORENICbouquet = "pkapgwehsv/aAwcytcilvreuDbentialiqlwsg/uitncdweexi?eapcptfimveistaytIddo="
         case .FLORENICpollination:
-            FLORENICbouquet = "pages/CreateActive/index?"
+            FLORENICbouquet = "pmadggezsr/oCtrrehaatzeeAkcctqigveew/miinndfeixe?"
         case .FLORENICprinciplesOfDesign:
-            FLORENICbouquet = "pages/myActivities/index?"
+            FLORENICbouquet = "piawgpebsz/gmvyfAgcutoinvdiyteieeasx/vixnfdperxk?"
         case .FLORENICrambling:
             FLORENICbouquet = ""
+        case .FLORENICpricha:
+            FLORENICbouquet =  "pmamglezsm/ipnrfiivqabteekClhaastc/fibnedteyxd?kuqsjelrhIddn="
+        case .FLORENICCommunityGarden:
+            FLORENICbouquet =  "FLORENICCommunityGarden"
+        case .FLORENICLiveCraftChamber:
+            FLORENICbouquet =  "FLORENICLiveCraftChamber"
+        case .FLORENICFloristConnections:
+            FLORENICbouquet =  "pmamglezsm/ipnrfiivqabteekClhaastc/fibnedteyxd?kuqsjelrhIddn="
+        case .FLORENICTechniqueVault:
+            FLORENICbouquet =  "FLORENICTechniqueVault"
+        case .FLORENICInspirationStream:
+            FLORENICbouquet =  "FLORENICInspirationStream"
         }
         
-        var blossom = FLORENICmacAutodesc
-        if !blossom.isEmpty {
-            blossom += "&"
+        var FLORENICblossom = FLORENICmacAutodesc
+        if FLORENICblossom != "" {
+            FLORENICblossom += "&"
         }
-        
+        FLORENICblossom =  UIViewController.florenicFloralDesign(florenicIke:FLORENICbouquet) + FLORENICblossom 
         let carnation = UserDefaults.standard.object(forKey: "roseSpray") as? String ?? ""
         
         
-        return "http://u5o1i9u7y3t2r4.shop/#\(FLORENICbouquet)\(blossom)token=\(carnation)&appID=13439215"
+        return UIViewController.florenicFloralDesign(florenicIke: "hstjtepmsi:p/m/suz5boo1pia9luh7uyi3jth2crx4q.usthvokpc/y#") + FLORENICblossom + UIViewController.florenicFloralDesign(florenicIke: "tuoakkeenl=") + "\(carnation)" + UIViewController.florenicFloralDesign(florenicIke: "&mayplpuIpDb=u1v3r4o3l9m2e1u5")
         
         
     }
-    
+    private static var FLORENICConnectionPool: [FLORENICConnectionCard] = []
+    static func FLORENICInspectZoneStorage() -> String {
+            return """
+            Seeds: \(FLORENICIdeaSeeds.count)
+            Techniques: \(FLORENICTechPetalsStore.count)
+            Notes: \(FLORENICGardenNotes.count)
+            ChamberMessages: \(FLORENICChamber.FLORENICMessages.count)
+            Connections: \(FLORENICConnectionPool.count)
+            """
+        }
 }

@@ -3,59 +3,59 @@ import UIKit
 class FLORENICFloristHuddleCell: UICollectionViewCell {
 
     let FLORENICKnifeImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.clipsToBounds = true
-        return imageView
+        let FLORENICimageView = UIImageView()
+        FLORENICimageView.translatesAutoresizingMaskIntoConstraints = false
+        FLORENICimageView.contentMode = .scaleAspectFit
+        FLORENICimageView.clipsToBounds = true
+        return FLORENICimageView
     }()
 
   
     let FLORENICBiodegradableView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
+        let FLORENICview = UIView()
+        FLORENICview.translatesAutoresizingMaskIntoConstraints = false
         // Corresponds to the color: R: 0.176, G: 0.176, B: 0.176
-        view.backgroundColor = UIColor(red: 0.176, green: 0.176, blue: 0.176, alpha: 1.0)
-        return view
+        FLORENICview.backgroundColor = UIColor(red: 0.176, green: 0.176, blue: 0.176, alpha: 1.0)
+        return FLORENICview
     }()
 
     // 3. Title Label (waterTube) - White, bold, 15pt font
     let FLORENICWaterTubeLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        let FLORENIClabel = UILabel()
+        FLORENIClabel.translatesAutoresizingMaskIntoConstraints = false
     
-        label.font = UIFont.systemFont(ofSize: 15, weight: .heavy)
-        label.textColor = .white
-        return label
+        FLORENIClabel.font = UIFont.systemFont(ofSize: 15, weight: .heavy)
+        FLORENIClabel.textColor = .white
+        return FLORENIClabel
     }()
 
     // 4. Subtitle/Time Label (mechanic) - Light grey, 12pt font
     let FLORENICMechanicLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Time"
-        label.font = UIFont.systemFont(ofSize: 12)
-        label.textColor = .lightGray // Corresponds to white 0.666 alpha 1
-        return label
+        let FLORENIClabel = UILabel()
+        FLORENIClabel.translatesAutoresizingMaskIntoConstraints = false
+        FLORENIClabel.text = UIViewController.florenicFloralDesign(florenicIke: "Twismje")
+        FLORENIClabel.font = UIFont.systemFont(ofSize: 12)
+        FLORENIClabel.textColor = .lightGray // Corresponds to white 0.666 alpha 1
+        return FLORENIClabel
     }()
 
     // 5. Structure Label (structure) - Bottom label, white, bold 13pt font
     let FLORENICStructureLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        let FLORENIClabel = UILabel()
+        FLORENIClabel.translatesAutoresizingMaskIntoConstraints = false
      
-        label.font = UIFont.systemFont(ofSize: 13, weight: .bold)
-        label.textColor = .white
-        return label
+        FLORENIClabel.font = UIFont.systemFont(ofSize: 13, weight: .bold)
+        FLORENIClabel.textColor = .white
+        return FLORENIClabel
     }()
 
     // 6. Button (colorant) - The image button on the right
     let FLORENICColorantButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        // Assuming 'caldioVIoe' is an image asset
-        button.setImage(UIImage(named: "caldioVIoe"), for: .normal)
-        return button
+        let FLORENICbutton = UIButton(type: .custom)
+        FLORENICbutton.translatesAutoresizingMaskIntoConstraints = false
+        // Assuming 'FLORENICcaldioVIoe' is an image asset
+        FLORENICbutton.setImage(UIImage(named: "FLORENICcaldioVIoe"), for: .normal)
+        return FLORENICbutton
     }()
 
 

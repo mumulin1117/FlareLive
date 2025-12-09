@@ -17,72 +17,70 @@ class FLORENICTabBarController: UITabBarController {
       
         let FLORENICpetalPalette = FLORENICPetalPaletteController()
 
-        // 3. Bloom Stream Tab (假设为视频/直播)
+       
         let FLORENICbloomNav = FLORENICCreateNavController(
-            for: FLORENICbloomStream,
+            forFLORENIC: FLORENICbloomStream,
             
-            image: UIImage(named: "ranunculus_00") ?? UIImage(),
-            selectedImage: UIImage(named: "ranunculus_01") ?? UIImage()
+            FLORENICimage: UIImage(named: "FLORENICranunculus_00") ?? UIImage(),
+            FLORENIClectedImage: UIImage(named: "FLORENICranunculus_01") ?? UIImage()
         )
 
-        // 2. Budding Nook Tab (假设为探索/分类)
         let FLORENICbuddingNav = FLORENICCreateNavController(
-            for: FLORENICbuddingNook,
+            forFLORENIC: FLORENICbuddingNook,
           
-            image: UIImage(named: "ranunculus_10") ?? UIImage(),
-            selectedImage: UIImage(named: "ranunculus_11") ?? UIImage()
+            FLORENICimage: UIImage(named: "FLORENICranunculus_10") ?? UIImage(),
+            FLORENIClectedImage: UIImage(named: "FLORENICranunculus_11") ?? UIImage()
         )
 
         
-        // 1. Florist Huddle Tab (假设为主页/列表)
         let FLORENICfloristNav = FLORENICCreateNavController(
-            for: FLORENICfloristHuddle,
+            forFLORENIC: FLORENICfloristHuddle,
   
-            image: UIImage(named: "ranunculus_20") ?? UIImage(), // 占位图片
-            selectedImage: UIImage(named: "ranunculus_21") ?? UIImage() // 占位图片
+            FLORENICimage: UIImage(named: "FLORENICranunculus_20") ?? UIImage(), // 占位图片
+            FLORENIClectedImage: UIImage(named: "FLORENICranunculus_21") ?? UIImage() // 占位图片
         )
-        // 4. Petal Palette Tab (假设为我的/个人中心)
+    
         let FLORENICpetalNav = FLORENICCreateNavController(
-            for: FLORENICpetalPalette,
+            forFLORENIC: FLORENICpetalPalette,
  
-            image: UIImage(named: "ranunculus_30") ?? UIImage(),
-            selectedImage: UIImage(named: "ranunculus_31") ?? UIImage()
+            FLORENICimage: UIImage(named: "FLORENICranunculus_30") ?? UIImage(),
+            FLORENIClectedImage: UIImage(named: "FLORENICranunculus_31") ?? UIImage()
         )
 
         self.viewControllers = [FLORENICbloomNav , FLORENICbuddingNav, FLORENICfloristNav, FLORENICpetalNav]
     }
     
-    private func FLORENICCreateNavController(for rootViewController: UIViewController,  image: UIImage, selectedImage: UIImage) -> UINavigationController {
-        let navController = UINavigationController(rootViewController: rootViewController)
-        navController.navigationBar.isHidden = true
+    private func FLORENICCreateNavController(forFLORENIC rootViewController: UIViewController,  FLORENICimage: UIImage, FLORENIClectedImage: UIImage) -> UINavigationController {
+        let FLORENICnavController = UINavigationController(rootViewController: rootViewController)
+        FLORENICnavController.navigationBar.isHidden = true
         
-        navController.tabBarItem.title = title
-        navController.tabBarItem.image = image.withRenderingMode(.alwaysOriginal)
-        navController.tabBarItem.selectedImage = selectedImage.withRenderingMode(.alwaysOriginal)
+        FLORENICnavController.tabBarItem.title = title
+        FLORENICnavController.tabBarItem.image = FLORENICimage.withRenderingMode(.alwaysOriginal)
+        FLORENICnavController.tabBarItem.selectedImage = FLORENIClectedImage.withRenderingMode(.alwaysOriginal)
         rootViewController.navigationItem.title = title
-        return navController
+        return FLORENICnavController
     }
 
     private func FLORENICSetupTabBarAppearance() {
-        let appearance = UITabBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor.init(red: 20/255, green: 20/255, blue: 20/255, alpha: 1)
+        let FLORENICappearance = UITabBarAppearance()
+        FLORENICappearance.configureWithOpaqueBackground()
+        FLORENICappearance.backgroundColor = UIColor.init(red: 20/255, green: 20/255, blue: 20/255, alpha: 1)
         
-        let normalAttributes: [NSAttributedString.Key: Any] = [
+        let FLORENICnormalAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.gray,
             .font: UIFont.systemFont(ofSize: 10)
         ]
-        let selectedAttributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor.systemPink, // 假设一个主色调
+        let FLORENICselectedAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.systemPink, 
             .font: UIFont.systemFont(ofSize: 10)
         ]
         
-        appearance.stackedLayoutAppearance.normal.titleTextAttributes = normalAttributes
-        appearance.stackedLayoutAppearance.selected.titleTextAttributes = selectedAttributes
+        FLORENICappearance.stackedLayoutAppearance.normal.titleTextAttributes = FLORENICnormalAttributes
+        FLORENICappearance.stackedLayoutAppearance.selected.titleTextAttributes = FLORENICselectedAttributes
         
-        self.tabBar.standardAppearance = appearance
+        self.tabBar.standardAppearance = FLORENICappearance
         if #available(iOS 15.0, *) {
-            self.tabBar.scrollEdgeAppearance = appearance
+            self.tabBar.scrollEdgeAppearance = FLORENICappearance
         }
     }
 }

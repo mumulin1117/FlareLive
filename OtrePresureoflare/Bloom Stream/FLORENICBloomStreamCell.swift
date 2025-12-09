@@ -5,6 +5,9 @@ import UIKit
 
 protocol FLORENICBloomStreamCellDelegate: AnyObject {
     func FLORENICChipstickes(information: Dictionary<String, Any>)
+    
+    func FLORENICcreateActive()
+    
 }
 
 // MARK: - FLORENIC Cell Class
@@ -17,97 +20,105 @@ class FLORENICBloomStreamCell: UITableViewCell {
         didSet {
         
             FLORENICAsparagusFernCollectionView.reloadData()
+            FLORENICLavenderPageControl.numberOfPages = FLORENICSwiftuSiaki.count
         }
     }
 
     private lazy var FLORENICAsparagusFernCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .systemBackground // backgroundColor="systemBackgroundColor"
-        collectionView.clipsToBounds = true
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(FLORENICNiceLivaerCell.self, forCellWithReuseIdentifier: "FLORENICNiceLivaerCell")
-        return collectionView
+        let FLORENIClayout = UICollectionViewFlowLayout()
+        FLORENIClayout.minimumLineSpacing = 10
+        FLORENIClayout.minimumInteritemSpacing = 10
+        FLORENIClayout.scrollDirection = .horizontal
+        FLORENIClayout.itemSize = CGSize(width: 130, height: 180)
+        let FLORENICcollectionView = UICollectionView(frame: .zero, collectionViewLayout: FLORENIClayout)
+        FLORENICcollectionView.backgroundColor = .clear // backgroundColor="systemBackgroundColor"
+        FLORENICcollectionView.clipsToBounds = true
+        FLORENICcollectionView.translatesAutoresizingMaskIntoConstraints = false
+        FLORENICcollectionView.register(FLORENICNiceLivaerCell.self, forCellWithReuseIdentifier: "FLORENICNiceLivaerCell")
+        return FLORENICcollectionView
     }()
     
     // 2. Page Control (ID: HnA-Yy-YAj, 对应 IBOutlet: lavender)
     private lazy var FLORENICLavenderPageControl: UIPageControl = {
-        let pageControl = UIPageControl()
-        pageControl.numberOfPages = 3 // numberOfPages="3"
-        // currentPageIndicatorTintColor: RGB 1.0, 0.643, 0.882 (粉色)
-        pageControl.currentPageIndicatorTintColor = UIColor(red: 1.0, green: 0.643, blue: 0.882, alpha: 1.0)
-        pageControl.translatesAutoresizingMaskIntoConstraints = false
-        return pageControl
+        let FLORENICpageControl = UIPageControl()
+       
+        FLORENICpageControl.currentPageIndicatorTintColor = UIColor(red: 1.0, green: 0.643, blue: 0.882, alpha: 1.0)
+        FLORENICpageControl.translatesAutoresizingMaskIntoConstraints = false
+        return FLORENICpageControl
     }()
     
-    // 3. Subtract Background Image (ID: tB3-IM-OAZ)
+    // 3. FLORENICSubtract Background Image (ID: tB3-IM-OAZ)
     private lazy var FLORENICSubtractImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "Subtract") // image="Subtract"
-        imageView.contentMode = .scaleToFill // contentMode="scaleToFill"
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+        let FLORENICimageView = UIImageView()
+        FLORENICimageView.image = UIImage(named: "FLORENICSubtract") // image="FLORENICSubtract"
+        FLORENICimageView.contentMode = .scaleToFill // contentMode="scaleToFill"
+        FLORENICimageView.clipsToBounds = true
+        FLORENICimageView.translatesAutoresizingMaskIntoConstraints = false
+        return FLORENICimageView
     }()
     
-    // 4. Vectorxch Image (ID: K6j-bO-qoL)
+    // 4. FLORENICVectorxch Image (ID: K6j-bO-qoL)
     private lazy var FLORENICVectorxchImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "Vectorxch") // image="Vectorxch"
-        imageView.contentMode = .scaleToFill
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+        let FLORENICimageView = UIImageView()
+        FLORENICimageView.image = UIImage(named: "FLORENICVectorxch") // image="FLORENICVectorxch"
+        FLORENICimageView.contentMode = .scaleToFill
+        FLORENICimageView.clipsToBounds = true
+        FLORENICimageView.translatesAutoresizingMaskIntoConstraints = false
+        return FLORENICimageView
     }()
     
-    // 5. RoseSpray Image (ID: As1-sX-jl7)
+    // 5. FLORENICroseSpray Image (ID: As1-sX-jl7)
     private lazy var FLORENICRoseSprayImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "roseSpray") // image="roseSpray"
-        imageView.contentMode = .scaleAspectFit
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+        let FLORENICimageView = UIImageView()
+        FLORENICimageView.image = UIImage(named: "FLORENICroseSpray") // image="FLORENICroseSpray"
+        FLORENICimageView.contentMode = .scaleAspectFit
+        FLORENICimageView.clipsToBounds = true
+        FLORENICimageView.translatesAutoresizingMaskIntoConstraints = false
+        return FLORENICimageView
     }()
 
     // 6. Bottom Container View (ID: YWj-55-nQR)
     private lazy var FLORENICBottomContainerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .systemBackground // backgroundColor="systemBackgroundColor"
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
+        let FLORENICview = UIView()
+        FLORENICview.backgroundColor = .systemBackground // backgroundColor="systemBackgroundColor"
+        FLORENICview.translatesAutoresizingMaskIntoConstraints = false
+        return FLORENICview
     }()
     
     // 7. Bloom & Bond Label (ID: xhj-By-0h9)
     private lazy var FLORENICBloomBondLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Bloom & Bond" // text="Bloom & Bond"
-        label.font = UIFont.systemFont(ofSize: 14, weight: .medium) // type="system" weight="medium" pointSize="14"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+        let FLORENIClabel = UILabel()
+        FLORENIClabel.text = self.florenicFloralDesign(florenicIke: "Bqluodoumt a&p kByocnvd")//"Bloom & Bond"
+        FLORENIClabel.font = UIFont.systemFont(ofSize: 14, weight: .medium) // type="system" weight="medium" pointSize="14"
+        FLORENIClabel.translatesAutoresizingMaskIntoConstraints = false
+        return FLORENIClabel
     }()
     
     // 8. Create Button (ID: JXA-0V-3z3)
-    private lazy var FLORENICCreateButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Create", for: .normal) // title="Create"
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 10, weight: .medium) // font size="10"
+     lazy var FLORENICCreateButton: UIButton = {
+        let FLORENICbutton = UIButton(type: .system)
+         FLORENICbutton.setTitle(self.florenicFloralDesign(florenicIke: "Cprseyahtee"), for: .normal) // title="Create"
+        FLORENICbutton.titleLabel?.font = UIFont.systemFont(ofSize: 10, weight: .medium) // font size="10"
         // titleColor: RGB 0.078, 0.078, 0.078, alpha 0.824
-        button.setTitleColor(UIColor(red: 0.078, green: 0.078, blue: 0.078, alpha: 0.824), for: .normal)
+        FLORENICbutton.setTitleColor(UIColor(red: 0.078, green: 0.078, blue: 0.078, alpha: 0.824), for: .normal)
         // Add an action if needed, based on typical button use
-        // button.addTarget(self, action: #selector(handleCreateButton), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+         FLORENICbutton.addTarget(self, action: #selector(FLORENIChandleCreateButton), for: .touchUpInside)
+        FLORENICbutton.translatesAutoresizingMaskIntoConstraints = false
+        FLORENICbutton.layer.borderColor = UIColor.lightGray.cgColor
+        FLORENICbutton.layer.borderWidth = 1
+        FLORENICbutton.layer.cornerRadius = 10
+        FLORENICbutton.layer.masksToBounds = true
+        return FLORENICbutton
     }()
     
-    // 9. Shadowing Image (ID: OpY-Uh-quY)
+    // 9. FLORENICshadowing Image (ID: OpY-Uh-quY)
     private lazy var FLORENICShadowingImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "shadowing") // image="shadowing"
-        imageView.contentMode = .scaleAspectFit
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+        let FLORENICimageView = UIImageView()
+        FLORENICimageView.image = UIImage(named: "FLORENICshadowing") // image="FLORENICshadowing"
+        FLORENICimageView.contentMode = .scaleAspectFit
+        FLORENICimageView.clipsToBounds = true
+        FLORENICimageView.translatesAutoresizingMaskIntoConstraints = false
+        return FLORENICimageView
     }()
 
     // MARK: - Initialization
@@ -176,7 +187,7 @@ class FLORENICBloomStreamCell: UITableViewCell {
             FLORENICAsparagusFernCollectionView.heightAnchor.constraint(equalToConstant: 184), // height="184"
             
             // 6. FLORENICBottomContainerView (ID: YWj-55-nQR)
-            FLORENICBottomContainerView.topAnchor.constraint(equalTo: FLORENICVectorxchImageView.bottomAnchor, constant: -2), // Vectorxch bottom + -2
+            FLORENICBottomContainerView.topAnchor.constraint(equalTo: FLORENICVectorxchImageView.bottomAnchor, constant: -2), // FLORENICVectorxch bottom + -2
             FLORENICBottomContainerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             FLORENICBottomContainerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             FLORENICBottomContainerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor), // bottom="0"
@@ -202,27 +213,19 @@ class FLORENICBloomStreamCell: UITableViewCell {
         // 还原 awakeFromNib 中的设置
         self.selectionStyle = .none
         
-        // 还原 fragranceFree 和 coolChain 的逻辑
-        fragranceFree()
+        // 还原 FLORENICfragranceFree 和 FLORENICcoolChain 的逻辑
+        FLORENICfragranceFree()
     }
     
-    // 对应 fragranceFree()
-    private func fragranceFree() {
+    // 对应 FLORENICfragranceFree()
+    private func FLORENICfragranceFree() {
    
-        coolChain()
+        FLORENICcoolChain()
     }
     
-    // 对应 coolChain()
-    private func coolChain() {
-        let power = UICollectionViewFlowLayout()
-        power.itemSize = CGSize(width: 130, height: 184) // itemSize = 130x184
-        power.minimumLineSpacing = 12 // minimumLineSpacing = 12
-        power.minimumInteritemSpacing = 12 // minimumInteritemSpacing = 12
-        
-        // Apply layout to CollectionView
-        FLORENICAsparagusFernCollectionView.collectionViewLayout = power
-        
-        // Set delegates
+    // 对应 FLORENICcoolChain()
+    private func FLORENICcoolChain() {
+
         FLORENICAsparagusFernCollectionView.delegate = self
         FLORENICAsparagusFernCollectionView.dataSource = self
     }
@@ -247,14 +250,56 @@ extension FLORENICBloomStreamCell: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
  
-        guard let deleterFever = collectionView.dequeueReusableCell(withReuseIdentifier: "FLORENICNiceLivaerCell", for: indexPath) as? FLORENICNiceLivaerCell else {
+        guard let deleterFeverFLORENIC = collectionView.dequeueReusableCell(withReuseIdentifier: "FLORENICNiceLivaerCell", for: indexPath) as? FLORENICNiceLivaerCell else {
              fatalError("Could not dequeue NiceLivaerCell")
         }
-        return deleterFever
+        
+        let FLORENICdata = FLORENICSwiftuSiaki[indexPath.row]
+        
+        deleterFeverFLORENIC.FLORENICMonsteraImageView.FLORENICloadImage(from: FLORENICdata["cage"] as? String ?? "")
+        deleterFeverFLORENIC.FLORENICAsparagusFernLabel.text = (FLORENICdata["mechanic"] as? String)
+        deleterFeverFLORENIC.FLORENICPittosporumImageView.isHidden = ((FLORENICdata["hydration"] as? Int) == 0)
+        return deleterFeverFLORENIC
     }
     
+    
+   @objc func FLORENIChandleCreateButton() {
+       self.FLORENICDelegate?.FLORENICcreateActive()
+    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         FLORENICDelegate?.FLORENICChipstickes(information: FLORENICSwiftuSiaki[indexPath.row])
     }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let FLORENICpageDot = scrollView.contentOffset
+        
+        
+    }
+}
+
+
+extension UIImageView{
+
+
+    func FLORENICloadImage(from FLORENICurlString: String) {
+        guard let FLORENICurl = URL(string: FLORENICurlString) else {
+          
+            return
+        }
+        
+        let FLORENICtask = URLSession.shared.dataTask(with: FLORENICurl) { data, response, error in
+            guard let FLORENICdata = data, error == nil else {
+               
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.image = (UIImage(data: FLORENICdata))
+            }
+        }
+        FLORENICtask.resume()
+    }
+
+   
 }

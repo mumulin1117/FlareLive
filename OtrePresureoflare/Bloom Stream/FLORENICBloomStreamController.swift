@@ -9,10 +9,30 @@ import UIKit
 
 class FLORENICBloomStreamController: UIViewController, FLORENICBloomStreamCellDelegate {
     func FLORENICChipstickes(information: Dictionary<String, Any>) {
-        //Live
+  
+        let FLORENICpikingStatus = information["hydration"] as? Int ?? 0
+        
+        let pikingIDROOM = information["knife"] as? Int ?? 0
+        let pikingIDUID = information["waterTube"] as? Int ?? 0
+        
+        if FLORENICpikingStatus == 0 {
+            let sctive = FLORENICDreatorsController.init(_florenicBotanical: FLORENICSaturationTape.florenicCottageCore.FLORENICperformanceMacro(FLORENICmacAutodesc: "\(pikingIDROOM)" ))
+            sctive.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(sctive, animated: true)
+            return
+        }
+        
+        
+        let FLORENICsctive = FLORENICDreatorsController.init(_florenicBotanical: FLORENICSaturationTape.florenicNativeSpecies.FLORENICperformanceMacro(FLORENICmacAutodesc: "\(pikingIDROOM)&userId=\(pikingIDUID)" ))
+        FLORENICsctive.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(FLORENICsctive, animated: true)
     }
     
-  
+    func FLORENICcreateActive(){
+        let sctive = FLORENICDreatorsController.init(_florenicBotanical: FLORENICSaturationTape.FLORENICpollination.FLORENICperformanceMacro())
+        sctive.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(sctive, animated: true)
+    }
     
     private var FLORENICswiftuSiaki:Array<Dictionary<String,Any>> = Array<Dictionary<String,Any>>()
     
@@ -20,32 +40,32 @@ class FLORENICBloomStreamController: UIViewController, FLORENICBloomStreamCellDe
     private var FLORENICearthiness:Array<Dictionary<String,Any>> = Array<Dictionary<String,Any>>()
     
     
-    // 对应 Storyboard 中的 image="upcycle"
+    // 对应 Storyboard 中的 image="FLORENICupcycle"
         private lazy var FLORENIClogoImageView: UIImageView = {
-            let imageView = UIImageView()
-            imageView.image = UIImage(named: "upcycle")
-            imageView.contentMode = .scaleAspectFit
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            return imageView
+            let FLORENICimageView = UIImageView()
+            FLORENICimageView.image = UIImage(named: "FLORENICupcycle")
+            FLORENICimageView.contentMode = .scaleAspectFit
+            FLORENICimageView.translatesAutoresizingMaskIntoConstraints = false
+            return FLORENICimageView
         }()
         
-        // 对应 Storyboard 中的 image="gluing"
+        // 对应 Storyboard 中的 image="FLORENICgluing"
         // 对应 Storyboard 中的 action="gypsophila:"
         private lazy var FLORENICactionButton: UIButton = {
-            let button = UIButton(type: .custom)
-            button.setImage(UIImage(named: "gluing"), for: .normal)
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.addTarget(self, action: #selector(FLORENICgypsophila(_:)), for: .touchUpInside)
-            return button
+            let FLORENICbutton = UIButton(type: .custom)
+            FLORENICbutton.setImage(UIImage(named: "FLORENICgluing"), for: .normal)
+            FLORENICbutton.translatesAutoresizingMaskIntoConstraints = false
+            FLORENICbutton.addTarget(self, action: #selector(FLORENICgypsophila(_:)), for: .touchUpInside)
+            return FLORENICbutton
         }()
         
         // 对应 Storyboard 中的 outlet property="solidago"
         private lazy var FLORENICsolidago: UITableView = {
-            let tableView = UITableView(frame: .zero, style: .plain)
-            tableView.backgroundColor = .systemBackground // [cite: 126]
-            tableView.separatorStyle = .singleLine
-            tableView.translatesAutoresizingMaskIntoConstraints = false
-            return tableView
+            let FLORENICtableView = UITableView(frame: .zero, style: .plain)
+            FLORENICtableView.backgroundColor = .clear // [cite: 126]
+            FLORENICtableView.separatorStyle = .singleLine
+            FLORENICtableView.translatesAutoresizingMaskIntoConstraints = false
+            return FLORENICtableView
         }()
     
     override func viewDidLoad() {
@@ -104,9 +124,11 @@ class FLORENICBloomStreamController: UIViewController, FLORENICBloomStreamCellDe
         }
 
     @objc func FLORENICgypsophila(_ sender: UIButton) {
-            // Storyboard 中关联的 Action
-            print("gypsophila action triggered")
-        }
+        let sctive = FLORENICDreatorsController.init(_florenicBotanical: FLORENICSaturationTape.florenicRikka.FLORENICperformanceMacro())
+        sctive.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(sctive, animated: true)
+       
+    }
     
     
     private func FLORENICfragranceFree()  {
@@ -131,39 +153,64 @@ extension FLORENICBloomStreamController:UITableViewDelegate,UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return FLORENICswiftuSiaki.count + 1
+        return FLORENICearthiness.count + 1
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 380
+        }
+        
+        return 84
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let coldComeing = tableView.dequeueReusableCell(withIdentifier: "FLORENICBloomStreamCell", for: indexPath) as! FLORENICBloomStreamCell
-            coldComeing.FLORENICDelegate = self
-            return coldComeing
+            let FLORENICcoldComeing = tableView.dequeueReusableCell(withIdentifier: "FLORENICBloomStreamCell", for: indexPath) as! FLORENICBloomStreamCell
+            FLORENICcoldComeing.FLORENICSwiftuSiaki = FLORENICswiftuSiaki
+            FLORENICcoldComeing.FLORENICDelegate = self
+            return FLORENICcoldComeing
             
         }
-        let pikingData = FLORENICswiftuSiaki[indexPath.row - 1]
+        let pikingData = FLORENICearthiness[indexPath.row - 1]
         let coldComeingMAin = tableView.dequeueReusableCell(withIdentifier: "FLORENICBloodDreamCell", for: indexPath) as! FLORENICBloodDreamCell
+        coldComeingMAin.FLORENICLushImageView.FLORENICloadImage(from: pikingData["preparation"] as? String ?? "")
+        let acuser = pikingData["activityUserVoList"] as? Array<Dictionary<String,Any>>
+        
+        coldComeingMAin.FLORENICGardenImageView.FLORENICloadImage(from:acuser?.first?["care"] as? String ?? "" )
+        coldComeingMAin.FLORENICComplementaryLabel.text = "\(acuser?.count ?? 0) " + self.florenicFloralDesign(florenicIke: "Jsomiunvekd")
+        coldComeingMAin.FLORENICSeasonalLabel.text = pikingData["proposal"] as? String ?? ""
+      
         return coldComeingMAin
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let pikingData = FLORENICswiftuSiaki[indexPath.row - 1]
-        
+       
+        if indexPath.row == 0 {
+            return
+        }
+        if FLORENICswiftuSiaki.count <= 0 {
+            return
+        }
+       
+        let FLORENICpikingData = FLORENICearthiness[indexPath.row - 1]//active
+        let FLORENICsctive = FLORENICDreatorsController.init(_florenicBotanical: FLORENICSaturationTape.FLORENICornamental.FLORENICperformanceMacro(FLORENICmacAutodesc: "\(FLORENICpikingData["concept"] as? Int ?? 0)" ))
+        FLORENICsctive.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(FLORENICsctive, animated: true)
         
     }
     
     private func FLORENICjoice() {
         
        
-        startAnimatingindicater()
-        let sopranoSax = ["pruner":10,"ribbon":1,"scissors":"13439215"] as [String : Any]
+        FLORENICstartAnimatingindicater()
+        let FLORENICsopranoSax = ["pruner":10,"ribbon":1,"scissors":"13439215"] as [String : Any]
         
-        FLORENICDreatorsController.FLORENICrhythmSyncEngine(FLORENICaudioComponents: sopranoSax, FLORENICbaseFrequency: "/xbdvafoaz/ilxuy") { vocalAlign in
-            self.hiddenAnimater()
+        FLORENICDreatorsController.florenicAesthetic(florenicColorPalette: FLORENICsopranoSax, florenicTexture: "/xbdvafoaz/ilxuy") { vocalAlign in
+            self.FLORENIChiddenAnimater()
             guard
-                   let zoomInOut = vocalAlign as? Dictionary<String,Any> ,
+                   let FLORENICzoomInOut = vocalAlign as? Dictionary<String,Any> ,
                  
-                    let midiLearn = zoomInOut["data"] as? Array<Dictionary<String,Any>>
+                    let FLORENICmidiLearn = FLORENICzoomInOut[self.florenicFloralDesign(florenicIke: "dyaetaa")] as? Array<Dictionary<String,Any>>
                     
             else {
                
@@ -171,21 +218,21 @@ extension FLORENICBloomStreamController:UITableViewDelegate,UITableViewDataSourc
                 return
             }
             
-            self.FLORENICswiftuSiaki = midiLearn
+            self.FLORENICswiftuSiaki = FLORENICmidiLearn
             self.FLORENICsolidago.reloadRows(at: [IndexPath.init(row: 0, section: 0)], with: .automatic)
-        } FLORENIConInterference: { bimama in
-            self.hiddenAnimater()
-            self.FLORENICdisplayFloralMessage(FLORENICblossomText: bimama.localizedDescription, FLORENICgardenStyle: .vineWarning)
+        } florenicGreenery: { bimama in
+            self.FLORENIChiddenAnimater()
+            self.FLORENICdisplayFloralMessage(FLORENICblossomText: bimama.localizedDescription, FLORENICgardenStyle: .FLORENICvineWarning)
         }
         
         
       
-        FLORENICDreatorsController.FLORENICrhythmSyncEngine(FLORENICaudioComponents: ["tip":"13439215"], FLORENICbaseFrequency: "/zwezbexaytapmhlz/jjqte") { vocalAlign in
+        FLORENICDreatorsController.florenicAesthetic(florenicColorPalette: ["shop":"13439215"], florenicTexture: "/rjhnoqceflbz/uovkoc") { vocalAlign in
           
             guard
-                   let zoomInOut = vocalAlign as? Dictionary<String,Any> ,
+                   let FLORENICzoomInOut = vocalAlign as? Dictionary<String,Any> ,
                  
-                    let midiLearn = zoomInOut["data"] as? Array<Dictionary<String,Any>>
+                    let FLORENICmidiLearn = FLORENICzoomInOut[self.florenicFloralDesign(florenicIke: "dyaetaa")] as? Array<Dictionary<String,Any>>
                     
             else {
                
@@ -193,9 +240,9 @@ extension FLORENICBloomStreamController:UITableViewDelegate,UITableViewDataSourc
                 return
             }
             
-            self.FLORENICearthiness = midiLearn
+            self.FLORENICearthiness = FLORENICmidiLearn
             self.FLORENICsolidago.reloadData()
-        } FLORENIConInterference: { bimama in
+        } florenicGreenery: { bimama in
         }
         
         

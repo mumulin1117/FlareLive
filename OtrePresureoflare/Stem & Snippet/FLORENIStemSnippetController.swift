@@ -9,101 +9,100 @@ import UIKit
 
 class FLORENIStemSnippetController: UIViewController,UITextViewDelegate {
     private lazy var FLORENICBackgroundImageView: UIImageView = {
-            let imageView = UIImageView()
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            imageView.contentMode = .scaleAspectFill
-            imageView.image = UIImage(named: "clockLOUIDaaw")
-            return imageView
+            let FLORENICimageView = UIImageView()
+            FLORENICimageView.translatesAutoresizingMaskIntoConstraints = false
+            FLORENICimageView.contentMode = .scaleAspectFill
+            FLORENICimageView.image = UIImage(named: "FLORENICclockLOUIDaaw")
+            return FLORENICimageView
         }()
     private lazy var FLORENICLogoImageView: UIImageView = {
-            let imageView = UIImageView()
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            imageView.contentMode = .scaleAspectFit
-            imageView.image = UIImage(named: "laopgmin")
-            return imageView
+            let FLORENICimageView = UIImageView()
+            FLORENICimageView.translatesAutoresizingMaskIntoConstraints = false
+            FLORENICimageView.contentMode = .scaleAspectFit
+            FLORENICimageView.image = UIImage(named: "FLORENIClaopgmin")
+            return FLORENICimageView
         }()
         
-        // Email 标签
+  
         private lazy var FLORENICEmailLabel: UILabel = {
-            let label = UILabel()
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.text = "Email"
-            label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
-            label.textColor = .white
-            return label
+            let FLORENIClabel = UILabel()
+            FLORENIClabel.translatesAutoresizingMaskIntoConstraints = false
+            FLORENIClabel.text = self.florenicFloralDesign(florenicIke: "Ecmyabidl")
+            FLORENIClabel.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+            FLORENIClabel.textColor = .white
+            return FLORENIClabel
         }()
         
-        // Email 输入框 (原名: bouquet)
+     
         private lazy var FLORENICEmailTextField: UITextField = {
-            let textField = UITextField()
-            textField.translatesAutoresizingMaskIntoConstraints = false
-            textField.placeholder = "Enter email address"
-            textField.textAlignment = .center
-            textField.borderStyle = .roundedRect
-            textField.minimumFontSize = 17
-            textField.textColor = .black
-            textField.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
-            return textField
+            let FLORENICtextField = UITextField()
+            FLORENICtextField.translatesAutoresizingMaskIntoConstraints = false
+            FLORENICtextField.placeholder = self.florenicFloralDesign(florenicIke: "Emnktzexro beymaativln gafdqdjrweisss")
+            FLORENICtextField.textAlignment = .center
+            FLORENICtextField.borderStyle = .roundedRect
+            FLORENICtextField.minimumFontSize = 17
+            FLORENICtextField.textColor = .black
+            FLORENICtextField.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+            return FLORENICtextField
         }()
 
-        // Password 标签
         private lazy var FLORENICPasswordLabel: UILabel = {
-            let label = UILabel()
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.text = "Password"
-            label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
-            label.textColor = .white
-            return label
+            let FLORENIClabel = UILabel()
+            FLORENIClabel.translatesAutoresizingMaskIntoConstraints = false
+            FLORENIClabel.text = self.florenicFloralDesign(florenicIke: "Ppaesbsmwaokrnd")
+            FLORENIClabel.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+            FLORENIClabel.textColor = .white
+            return FLORENIClabel
         }()
         
-        // Password 输入框 (原名: composition)
+  
         private lazy var FLORENICPasswordTextField: UITextField = {
-            let textField = UITextField()
-            textField.translatesAutoresizingMaskIntoConstraints = false
-            textField.placeholder = "Enter password"
-            textField.textAlignment = .center
-            textField.borderStyle = .roundedRect
-            textField.minimumFontSize = 17
-            textField.textColor = .black
-            textField.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
-            return textField
+            let FLORENICtextField = UITextField()
+            FLORENICtextField.translatesAutoresizingMaskIntoConstraints = false
+            FLORENICtextField.placeholder = self.florenicFloralDesign(florenicIke: "Efnvtqeorf wpgajslsawboirsd")
+            FLORENICtextField.textAlignment = .center
+            FLORENICtextField.borderStyle = .roundedRect
+            FLORENICtextField.minimumFontSize = 17
+            FLORENICtextField.textColor = .black
+            FLORENICtextField.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+            return FLORENICtextField
         }()
         
-        // Login 按钮 (原名: flourish, Action: symmetrical)
+    
         private lazy var FLORENICLoginButton: UIButton = {
-            let button = UIButton(type: .custom)
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-            button.setTitle("LOGIN", for: .normal)
-            button.setBackgroundImage(UIImage(named: "jialaoi"), for: .normal)
-            button.addTarget(self, action: #selector(FLORENICsymmetrical(_:)), for: .touchUpInside)
-            return button
+            let FLORENICbutton = UIButton(type: .custom)
+            FLORENICbutton.translatesAutoresizingMaskIntoConstraints = false
+            FLORENICbutton.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+            FLORENICbutton.setTitle(UIViewController.florenicFloralDesign(florenicIke: "LbOnGcIdN") , for: .normal)
+            FLORENICbutton.setBackgroundImage(UIImage(named: "FLORENICjialaoi"), for: .normal)
+            FLORENICbutton.addTarget(self, action: #selector(FLORENICsymmetrical(_:)), for: .touchUpInside)
+            return FLORENICbutton
         }()
         
         // Checkbox 按钮 (原名: petal, Action: foliage)
         private lazy var FLORENICCheckboxButton: UIButton = {
-            let button = UIButton(type: .custom)
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.setImage(UIImage(named: "uioenus"), for: .normal)
-            button.setImage(UIImage(named: "noiuuy"), for: .selected)
-            button.addTarget(self, action: #selector(FLORENICfoliage(_:)), for: .touchUpInside)
-            return button
+            let FLORENICbutton = UIButton(type: .custom)
+            FLORENICbutton.translatesAutoresizingMaskIntoConstraints = false
+            FLORENICbutton.setImage(UIImage(named: "FLORENICuioenus"), for: .normal)
+            FLORENICbutton.setImage(UIImage(named: "FLORENICnoiuuy"), for: .selected)
+            FLORENICbutton.addTarget(self, action: #selector(FLORENICfoliage(_:)), for: .touchUpInside)
+            return FLORENICbutton
         }()
         
         // Terms Text View (原名: massArrangement)
         private lazy var FLORENICTermsTextView: UITextView = {
-            let textView = UITextView()
-            textView.translatesAutoresizingMaskIntoConstraints = false
-            textView.backgroundColor = .clear
-            textView.textColor = .white
-            textView.font = UIFont.systemFont(ofSize: 14)
-            textView.isEditable = false
-            textView.isSelectable = false
-            textView.showsHorizontalScrollIndicator = false
-            textView.showsVerticalScrollIndicator = false
-            textView.text = "By continuing you agree to our <Terms of Service> and <Privacy Policy>."
-            textView.delegate = self
-            return textView
+            let FLORENICtextView = UITextView()
+            FLORENICtextView.translatesAutoresizingMaskIntoConstraints = false
+            FLORENICtextView.backgroundColor = .clear
+            FLORENICtextView.textColor = .white
+            FLORENICtextView.font = UIFont.systemFont(ofSize: 14)
+            FLORENICtextView.isEditable = false
+            FLORENICtextView.isSelectable = false
+            FLORENICtextView.showsHorizontalScrollIndicator = false
+            FLORENICtextView.showsVerticalScrollIndicator = false
+            FLORENICtextView.text = self.florenicFloralDesign(florenicIke: "Buyv zcvojnwtrianiusirnsgp oykoqus kacghrzezei mttoj losunra z<bTrelrcmwsp howfz kSgexrpvxidcneq>g sadnjdp s<oPzrtigvbalclya qPsoqlhieclya>r.")
+            FLORENICtextView.delegate = self
+            return FLORENICtextView
         }()
     
     private func FLORENICSetupUI() {
@@ -186,104 +185,99 @@ class FLORENIStemSnippetController: UIViewController,UITextViewDelegate {
         FLORENICSetupUI()
                
         FLORENICSetupConstraints()
-        // 原有的 viewDidLoad 逻辑
-                
-        // 注意：原方法 arboretum 属于 StemSnippetController 或其扩展，您需要将其重命名为 FLORENICPrefix
-        self.arboretum(keBouui:FLORENICEmailTextField)
-        
-        // 处理富文本/链接的逻辑 (来自原文件)
-        let baseText = "By continuing you agree to our <Terms of Service> and <Privacy Policy>."
-        let serviceTerm = "<Terms of Service>"
-        let privacyPolicy = "<Privacy Policy>"
+ 
+        self.FLORENICarboretum(FLORENICtexf:FLORENICEmailTextField)
+    
+        let FLORENICbaseText = self.florenicFloralDesign(florenicIke: "Bjyu ucjownttyihngukiundga rysonuu qaugerqezea dttox koaugrb m<jTpewrmmhsf hokff uSoewrtvqifcvek>i barnadx m<vPmrtitvsazcbyg xPdoilvincwyk>s.")
+        let FLORENICserviceTerm = self.florenicFloralDesign(florenicIke: "<rTpezrxmase xokfg yScefrevwiyctep>")
+        let FLORENICprivacyPolicy = self.florenicFloralDesign(florenicIke: "<vPereiavbatcmyu gPboslzisctyk>")
 
-        // 创建富文本
-        let attributedString = NSMutableAttributedString(string: baseText)
-        let entireRange = NSRange(location: 0, length: attributedString.length)
+       
+        let FLORENICdString = NSMutableAttributedString(string: FLORENICbaseText)
+        let FLORENICentireRange = NSRange(location: 0, length: FLORENICdString.length)
 
-        // 设置整体文本的基础样式
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .left
-        attributedString.addAttribute(.paragraphStyle, value: paragraphStyle, range: entireRange)
-        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 14), range: entireRange)
-        attributedString.addAttribute(.foregroundColor, value: UIColor.gray, range: entireRange)
+        let FLORENICparagraphStyle = NSMutableParagraphStyle()
+        FLORENICparagraphStyle.alignment = .left
+        FLORENICdString.addAttribute(.paragraphStyle, value: FLORENICparagraphStyle, range: FLORENICentireRange)
+        FLORENICdString.addAttribute(.font, value: UIFont.systemFont(ofSize: 14), range: FLORENICentireRange)
+        FLORENICdString.addAttribute(.foregroundColor, value: UIColor.gray, range: FLORENICentireRange)
 
-        // 查找并设置“服务协议”链接
-        if let serviceRange = baseText.range(of: serviceTerm) {
-            let nsRange = NSRange(serviceRange, in: baseText)
-            attributedString.addAttribute(.link, value: "app://serviceTerm", range: nsRange)
-            attributedString.addAttribute(.foregroundColor, value: UIColor.white, range: nsRange)
+        if let FLORENICserviceRange = FLORENICbaseText.range(of: FLORENICserviceTerm) {
+            let FLORENICnsRange = NSRange(FLORENICserviceRange, in: FLORENICbaseText)
+            FLORENICdString.addAttribute(.link, value: self.florenicFloralDesign(florenicIke: "azpcpf:l/m/usqeurtviilcnerTueprlm"), range: FLORENICnsRange)
+            FLORENICdString.addAttribute(.foregroundColor, value: UIColor.white, range: FLORENICnsRange)
         }
 
-        // 查找并设置“隐私政策”链接
-        if let privacyRange = baseText.range(of: privacyPolicy) {
-            let nsRange = NSRange(privacyRange, in: baseText)
-            attributedString.addAttribute(.link, value: "app://privacyPolicy", range: nsRange)
-            attributedString.addAttribute(.foregroundColor, value: UIColor.white, range: nsRange)
+        if let privacyRange = FLORENICbaseText.range(of: FLORENICprivacyPolicy) {
+            let nsRange = NSRange(privacyRange, in: FLORENICbaseText)
+            FLORENICdString.addAttribute(.link, value: self.florenicFloralDesign(florenicIke: "ampdpb:s/r/bpgraiuvaaqcpyqPqoulwircoy"), range: nsRange)
+            FLORENICdString.addAttribute(.foregroundColor, value: UIColor.white, range: nsRange)
         }
         
-        // 允许交互，以便点击链接
+
         FLORENICTermsTextView.isSelectable = true
         FLORENICTermsTextView.isEditable = false
         
-        FLORENICTermsTextView.attributedText = attributedString
+        FLORENICTermsTextView.attributedText = FLORENICdString
         FLORENICTermsTextView.linkTextAttributes = [
             .foregroundColor: UIColor.white, // 链接颜色
             .underlineStyle: NSUnderlineStyle.single.rawValue // 下划线
         ]
     }
     
-    @IBAction func FLORENICsymmetrical(_ sender: UIButton) {
+ @objc func FLORENICsymmetrical(_ sender: UIButton) {
        
-        let fallINner = FLORENICCheckboxButton.isSelected
+        let FLORENICfallINner = FLORENICCheckboxButton.isSelected
 
-        guard let falli = FLORENICEmailTextField.text, falli.count > 0 else {
-            self.FLORENICdisplayFloralMessage(FLORENICblossomText: "Please enter email first!", FLORENICgardenStyle: .vineWarning)
+        guard let FLORENICfalli = FLORENICEmailTextField.text, FLORENICfalli.count > 0 else {
+            self.FLORENICdisplayFloralMessage(FLORENICblossomText: self.florenicFloralDesign(florenicIke: "Peljewafsoex jeenatleora bejmiariqlb uffimrxseth!"), FLORENICgardenStyle: .FLORENICvineWarning)
            
             return
         }
-        guard let fallipass = FLORENICPasswordTextField.text, fallipass.count > 0 else {
-            self.FLORENICdisplayFloralMessage(FLORENICblossomText: "Please enter password first!", FLORENICgardenStyle: .vineWarning)
+        guard let FLORENICfallipass = FLORENICPasswordTextField.text, FLORENICfallipass.count > 0 else {
+            self.FLORENICdisplayFloralMessage(FLORENICblossomText: self.florenicFloralDesign(florenicIke: "Pklnerawsqeb qepndtnehrt jpsazscsbwlobrxdw ufviyrxsate!"), FLORENICgardenStyle: .FLORENICvineWarning)
            
             return
         }
         
-        guard  fallINner else {
-            self.FLORENICdisplayFloralMessage(FLORENICblossomText: "Please read and agreen our terms first!", FLORENICgardenStyle: .vineWarning)
+        guard  FLORENICfallINner else {
+            self.FLORENICdisplayFloralMessage(FLORENICblossomText: self.florenicFloralDesign(florenicIke: "Pplgexaosken rrcegamdy macnide rasgorvecedni kokuyrf jtnemrqmrsy sftisrmsotn!"), FLORENICgardenStyle: .FLORENICvineWarning)
            
             return
         }
-        startAnimatingindicater()
-        let sopranoSax = ["floralFoam":falli,"frog":fallipass,"pinHolder":"13439215"]
+        FLORENICstartAnimatingindicater()
+        let FLORENICsopranoSax = ["floralFoam":FLORENICfalli,"frog":FLORENICfallipass,"pinHolder":"13439215"]
         
-        FLORENICDreatorsController.FLORENICrhythmSyncEngine(FLORENICaudioComponents: sopranoSax, FLORENICbaseFrequency: "/hgwiyemaebejzz/pjgtlibzp") { vocalAlign in
-            self.hiddenAnimater()
+        FLORENICDreatorsController.florenicAesthetic(florenicColorPalette: FLORENICsopranoSax, florenicTexture: "/hgwiyemaebejzz/pjgtlibzp") { vocalAlign in
+            self.FLORENIChiddenAnimater()
             guard
-                   let zoomInOut = vocalAlign as? Dictionary<String,Any> ,
+                   let FLORENICzoomInOut = vocalAlign as? Dictionary<String,Any> ,
                  
-                  let midiLearn = zoomInOut["data"] as? Dictionary<String,Any>
+                  let FLORENICmidiLearn = FLORENICzoomInOut[self.florenicFloralDesign(florenicIke: "dbaotia")] as? Dictionary<String,Any>
                     
             else {
                
-                self.FLORENICdisplayFloralMessage(FLORENICblossomText: "Password or Emial is error", FLORENICgardenStyle: .vineWarning)
+                self.FLORENICdisplayFloralMessage(FLORENICblossomText: self.florenicFloralDesign(florenicIke: "Ppacshszwjovridk lohrt iEumdicatlt uiusa deerwrzobr"), FLORENICgardenStyle: .FLORENICvineWarning)
                 return
             }
             
             
-            UserDefaults.standard.set(midiLearn["protea"] as? Int, forKey: "protea")//userid
+            UserDefaults.standard.set(FLORENICmidiLearn["protea"] as? Int, forKey: "protea")//userid
             
-            UserDefaults.standard.set(midiLearn["roseSpray"] as? String, forKey: "roseSpray")//token
+            UserDefaults.standard.set(FLORENICmidiLearn["roseSpray"] as? String, forKey: "roseSpray")//token
            
-            self.FLORENICdisplayFloralMessage(FLORENICblossomText: "Log in successful!", FLORENICgardenStyle: .blossomSuccess)
-          
-        } FLORENIConInterference: { bimama in
-            self.hiddenAnimater()
-            self.FLORENICdisplayFloralMessage(FLORENICblossomText: bimama.localizedDescription, FLORENICgardenStyle: .vineWarning)
+            self.FLORENICdisplayFloralMessage(FLORENICblossomText: self.florenicFloralDesign(florenicIke: "Lcocgy wionn psouhcfceeisisxfiuulb!"), FLORENICgardenStyle: .FLORENICblossomSuccess)
+            let FLORENICviewController =  FLORENICTabBarController()//storyboard.instantiateViewController(withIdentifier: "tababrID" )
+            ((UIApplication.shared.delegate) as? AppDelegate)?.window?.rootViewController = FLORENICviewController
+        } florenicGreenery: { bimama in
+            self.FLORENIChiddenAnimater()
+            self.FLORENICdisplayFloralMessage(FLORENICblossomText: bimama.localizedDescription, FLORENICgardenStyle: .FLORENICvineWarning)
         }
     }
     
     
     
-    @IBAction func FLORENICfoliage(_ sender: UIButton) {
+ @objc func FLORENICfoliage(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         
     }
@@ -291,34 +285,34 @@ class FLORENIStemSnippetController: UIViewController,UITextViewDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    func arboretum(keBouui:UITextField) {
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
+    func FLORENICarboretum(FLORENICtexf:UITextField) {
+        let FLORENICtoolbar = UIToolbar()
+        FLORENICtoolbar.sizeToFit()
         
         
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonAction))
+        let FLORENICflexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let FLORENICdoneButton = UIBarButtonItem(title: self.florenicFloralDesign(florenicIke: "Dwownve"), style: .done, target: self, action: #selector(FLORENICdoneAction))
         
-        toolbar.items = [flexSpace, doneButton]
-        keBouui.inputAccessoryView = toolbar
+        FLORENICtoolbar.items = [FLORENICflexSpace, FLORENICdoneButton]
+        FLORENICtexf.inputAccessoryView = FLORENICtoolbar
         
     }
         
         
-    @objc private func doneButtonAction() {
+    @objc private func FLORENICdoneAction() {
         self.resignFirstResponder()
     }
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-        // 阻止默认的链接打开行为，我们自行处理
+       
         switch URL.scheme {
-        case "app":
+        case self.florenicFloralDesign(florenicIke: "ahpqp"):
             switch URL.host {
-            case "serviceTerm":
+            case self.florenicFloralDesign(florenicIke: "szegrpvrigcseeThemrbm"):
                 // 跳转到服务协议页面
-                self.navigationController?.pushViewController(FLORENICDreatorsController.init(_FLORENICmoodGlyph: FLORENICSaturationTape.FLORENICgardenStyle.FLORENICperformanceMacro()), animated: true  )
+                self.navigationController?.pushViewController(FLORENICDreatorsController.init(_florenicBotanical: FLORENICSaturationTape.FLORENICgardenStyle.FLORENICperformanceMacro()), animated: true  )
                 return false // 返回false表示不使用Safari打开
-            case "privacyPolicy":
-                self.navigationController?.pushViewController(FLORENICDreatorsController.init(_FLORENICmoodGlyph: FLORENICSaturationTape.FLORENICpeony.FLORENICperformanceMacro()), animated: true  )
+            case self.florenicFloralDesign(florenicIke: "pwrcilvwabcryjPwokloiycoy"):
+                self.navigationController?.pushViewController(FLORENICDreatorsController.init(_florenicBotanical: FLORENICSaturationTape.FLORENICpeony.FLORENICperformanceMacro()), animated: true  )
                 return false
             default:
                 break
@@ -332,25 +326,25 @@ class FLORENIStemSnippetController: UIViewController,UITextViewDelegate {
 }
 
 extension UIViewController{
-    func startAnimatingindicater() {
-        if let view = self.view.viewWithTag(189) as? UIActivityIndicatorView{
-            view.startAnimating()
+    func FLORENICstartAnimatingindicater() {
+        if let FLORENICview = self.view.viewWithTag(189) as? UIActivityIndicatorView{
+            FLORENICview.startAnimating()
             return
         }
-        let laduuing = UIActivityIndicatorView.init()
-        laduuing.hidesWhenStopped = true
+        let FLORENICladuuing = UIActivityIndicatorView.init()
+        FLORENICladuuing.hidesWhenStopped = true
         
-        laduuing.color = .systemPink
-        laduuing.tag = 189
-        laduuing.frame = CGRect.init(x: 0, y: 0, width: 70, height: 70)
-        laduuing.center = self.view.center
-        self.view.addSubview(laduuing)
-        laduuing.startAnimating()
+        FLORENICladuuing.color = .systemPink
+        FLORENICladuuing.tag = 189
+        FLORENICladuuing.frame = CGRect.init(x: 0, y: 0, width: 70, height: 70)
+        FLORENICladuuing.center = self.view.center
+        self.view.addSubview(FLORENICladuuing)
+        FLORENICladuuing.startAnimating()
     }
     
-    func hiddenAnimater()  {
-        if let view = self.view.viewWithTag(189) as? UIActivityIndicatorView{
-            view.stopAnimating()
+    func FLORENIChiddenAnimater()  {
+        if let FLORENICview = self.view.viewWithTag(189) as? UIActivityIndicatorView{
+            FLORENICview.stopAnimating()
             
         }
     }

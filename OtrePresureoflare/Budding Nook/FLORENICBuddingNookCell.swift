@@ -4,43 +4,42 @@ class FLORENICBuddingNookCell: UICollectionViewCell {
 
     // 1. Declare the UI components (no @IBOutlet needed)
     let FLORENIClacquer: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true // Corresponds to 'clipsSubviews="YES"'
-        // Optional: Set a placeholder or background color for testing
-        // imageView.backgroundColor = .lightGray
-        return imageView
+        let FLORENICimageView = UIImageView()
+        FLORENICimageView.translatesAutoresizingMaskIntoConstraints = false
+        FLORENICimageView.contentMode = .scaleAspectFill
+        FLORENICimageView.clipsToBounds = true // Corresponds to 'clipsSubviews="YES"'
+       
+        return FLORENICimageView
     }()
 
     let FLORENICepoxy: UIButton = {
-        let button = UIButton(type: .custom)
-        button.translatesAutoresizingMaskIntoConstraints = false
+        let FLORENICbutton = UIButton(type: .custom)
+        FLORENICbutton.translatesAutoresizingMaskIntoConstraints = false
         // The XIB uses an image literal, you'd load the image from your asset catalog
-        button.setImage(UIImage(named: "ethylene"), for: .normal)
-        button.contentHorizontalAlignment = .center
-        button.contentVerticalAlignment = .center
-        return button
+        FLORENICbutton.setImage(UIImage(named: "FLORENICethylene"), for: .normal)
+        FLORENICbutton.contentHorizontalAlignment = .center
+        FLORENICbutton.contentVerticalAlignment = .center
+        return FLORENICbutton
     }()
 
     let FLORENICseasonal: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Label" // Placeholder text from XIB
-        label.font = UIFont.systemFont(ofSize: 17) // Default system font size
-        label.textAlignment = .natural
-        label.numberOfLines = 1 // Corresponds to single-line setup
-        return label
+        let FLORENIClabel = UILabel()
+        FLORENIClabel.translatesAutoresizingMaskIntoConstraints = false
+        FLORENIClabel.textColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1)
+        FLORENIClabel.font = UIFont.systemFont(ofSize: 17) // Default system font size
+        FLORENIClabel.textAlignment = .natural
+        FLORENIClabel.numberOfLines = 1 // Corresponds to single-line setup
+        return FLORENIClabel
     }()
 
-    // The XIB also includes a separate image (techniqueAdvanced) which isn't connected
+    // The XIB also includes a separate image (FLORENICtechniqueAdvanced) which isn't connected
     // to an IBOutlet, but we should include it for a complete UI recreation.
-    let FLORENICtechniqueAdvancedImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "techniqueAdvanced")
-        return imageView
+    private let FLORENICtechniqueAdvancedImageView: UIImageView = {
+        let FLORENICimageView = UIImageView()
+        FLORENICimageView.translatesAutoresizingMaskIntoConstraints = false
+        FLORENICimageView.contentMode = .scaleAspectFit
+        FLORENICimageView.image = UIImage(named: "FLORENICtechniqueAdvanced")
+        return FLORENICimageView
     }()
 
     // Required initializer for programmatic UI creation
@@ -60,7 +59,10 @@ class FLORENICBuddingNookCell: UICollectionViewCell {
     }
 
     private func FLORENICsetupViews() {
-        // 2. Add subviews to the cell's contentView
+        self.backgroundColor = .white
+        self.layer.cornerRadius = 20
+        self.layer.masksToBounds = true
+        
         contentView.addSubview(FLORENIClacquer)
         contentView.addSubview(FLORENICepoxy)
         contentView.addSubview(FLORENICseasonal)
