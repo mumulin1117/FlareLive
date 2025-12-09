@@ -6,8 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		BB00E0BDF85AEEB56F12109A /* Pods_OtrePresureoflare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D37EE83B210144DA7C2D2856 /* Pods_OtrePresureoflare.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		045B114C2EA1D766004D71A6 /* OtrePresureoflare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OtrePresureoflare.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		50EAAFF857ED755F641931B0 /* Pods-OtrePresureoflare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OtrePresureoflare.debug.xcconfig"; path = "Target Support Files/Pods-OtrePresureoflare/Pods-OtrePresureoflare.debug.xcconfig"; sourceTree = "<group>"; };
+		D37EE83B210144DA7C2D2856 /* Pods_OtrePresureoflare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OtrePresureoflare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D42E1A0E5EFCDC98E77B4397 /* Pods-OtrePresureoflare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OtrePresureoflare.release.xcconfig"; path = "Target Support Files/Pods-OtrePresureoflare/Pods-OtrePresureoflare.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -36,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB00E0BDF85AEEB56F12109A /* Pods_OtrePresureoflare.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +55,8 @@
 			children = (
 				045B114E2EA1D766004D71A6 /* OtrePresureoflare */,
 				045B114D2EA1D766004D71A6 /* Products */,
+				E961E5100DE1CB182C7A2574 /* Pods */,
+				940B8824C9BA5E1169D52438 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +68,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		940B8824C9BA5E1169D52438 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D37EE83B210144DA7C2D2856 /* Pods_OtrePresureoflare.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E961E5100DE1CB182C7A2574 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				50EAAFF857ED755F641931B0 /* Pods-OtrePresureoflare.debug.xcconfig */,
+				D42E1A0E5EFCDC98E77B4397 /* Pods-OtrePresureoflare.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -65,9 +92,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 045B115F2EA1D768004D71A6 /* Build configuration list for PBXNativeTarget "OtrePresureoflare" */;
 			buildPhases = (
+				D0175C26825D1A031BAAFBDC /* [CP] Check Pods Manifest.lock */,
 				045B11482EA1D766004D71A6 /* Sources */,
 				045B11492EA1D766004D71A6 /* Frameworks */,
 				045B114A2EA1D766004D71A6 /* Resources */,
+				45029F3F6F76947B9A1801E7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -77,8 +106,6 @@
 				045B114E2EA1D766004D71A6 /* OtrePresureoflare */,
 			);
 			name = OtrePresureoflare;
-			packageProductDependencies = (
-			);
 			productName = OtrePresureoflare;
 			productReference = 045B114C2EA1D766004D71A6 /* OtrePresureoflare.app */;
 			productType = "com.apple.product-type.application";
@@ -127,6 +154,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		45029F3F6F76947B9A1801E7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OtrePresureoflare/Pods-OtrePresureoflare-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OtrePresureoflare/Pods-OtrePresureoflare-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OtrePresureoflare/Pods-OtrePresureoflare-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0175C26825D1A031BAAFBDC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OtrePresureoflare-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		045B11482EA1D766004D71A6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,11 +209,13 @@
 /* Begin XCBuildConfiguration section */
 		045B11602EA1D768004D71A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50EAAFF857ED755F641931B0 /* Pods-OtrePresureoflare.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OtrePresureoflare/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = FlareLive;
@@ -175,11 +246,13 @@
 		};
 		045B11612EA1D768004D71A6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D42E1A0E5EFCDC98E77B4397 /* Pods-OtrePresureoflare.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OtrePresureoflare/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = FlareLive;

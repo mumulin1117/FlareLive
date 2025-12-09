@@ -21,30 +21,30 @@ class FLORENICTabBarController: UITabBarController {
         let FLORENICbloomNav = FLORENICCreateNavController(
             forFLORENIC: FLORENICbloomStream,
             
-            FLORENICimage: UIImage(named: "FLORENICranunculus_00") ?? UIImage(),
-            FLORENIClectedImage: UIImage(named: "FLORENICranunculus_01") ?? UIImage()
+            FLORENICimage:FLORENICResourceLoader.shared.FLORENICImage(named: "FLORENICranunculus_00")  ?? UIImage(),
+            FLORENIClectedImage: FLORENICResourceLoader.shared.FLORENICImage(named: "FLORENICranunculus_01") ?? UIImage()
         )
 
         let FLORENICbuddingNav = FLORENICCreateNavController(
             forFLORENIC: FLORENICbuddingNook,
           
-            FLORENICimage: UIImage(named: "FLORENICranunculus_10") ?? UIImage(),
-            FLORENIClectedImage: UIImage(named: "FLORENICranunculus_11") ?? UIImage()
+            FLORENICimage: FLORENICResourceLoader.shared.FLORENICImage(named: "FLORENICranunculus_10") ?? UIImage(),
+            FLORENIClectedImage: FLORENICResourceLoader.shared.FLORENICImage(named: "FLORENICranunculus_11") ?? UIImage()
         )
 
         
         let FLORENICfloristNav = FLORENICCreateNavController(
             forFLORENIC: FLORENICfloristHuddle,
   
-            FLORENICimage: UIImage(named: "FLORENICranunculus_20") ?? UIImage(), // 占位图片
-            FLORENIClectedImage: UIImage(named: "FLORENICranunculus_21") ?? UIImage() // 占位图片
+            FLORENICimage:FLORENICResourceLoader.shared.FLORENICImage(named: "FLORENICranunculus_20")  ?? UIImage(), // 占位图片
+            FLORENIClectedImage: FLORENICResourceLoader.shared.FLORENICImage(named: "FLORENICranunculus_21") ?? UIImage() // 占位图片
         )
     
         let FLORENICpetalNav = FLORENICCreateNavController(
             forFLORENIC: FLORENICpetalPalette,
  
-            FLORENICimage: UIImage(named: "FLORENICranunculus_30") ?? UIImage(),
-            FLORENIClectedImage: UIImage(named: "FLORENICranunculus_31") ?? UIImage()
+            FLORENICimage: FLORENICResourceLoader.shared.FLORENICImage(named: "FLORENICranunculus_30") ?? UIImage(),
+            FLORENIClectedImage: FLORENICResourceLoader.shared.FLORENICImage(named: "FLORENICranunculus_31") ?? UIImage()
         )
 
         self.viewControllers = [FLORENICbloomNav , FLORENICbuddingNav, FLORENICfloristNav, FLORENICpetalNav]

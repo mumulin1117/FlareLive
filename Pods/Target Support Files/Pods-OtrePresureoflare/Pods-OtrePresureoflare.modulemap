@@ -1,0 +1,6 @@
+framework module Pods_OtrePresureoflare {
+  umbrella header "Pods-OtrePresureoflare-umbrella.h"
+
+  export *
+  module * { export * }
+}
