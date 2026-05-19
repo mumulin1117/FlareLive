@@ -13,7 +13,7 @@ import StoreKit
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    //Password to enter the live stream:0123
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

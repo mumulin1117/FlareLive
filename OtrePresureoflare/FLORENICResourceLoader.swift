@@ -7,7 +7,7 @@ final class FLORENICResourceLoader {
     static let shared = FLORENICResourceLoader()
     private init() {}
 
-    // MARK: - Constants
+    
     private let FLORENICZipFileName = "FLORENICResource"
     
     private let FLORENICResourceFolderName = "FLORENICImage"
@@ -65,7 +65,7 @@ private extension FLORENICResourceLoader {
         }
 
         let FLORENICzipURL = URL(fileURLWithPath: FLORENICzipPath)
-        let FLORENICdestinationURL = URL(fileURLWithPath: FLORENICDocumentPath) // ← 修改解压目标
+        let FLORENICdestinationURL = URL(fileURLWithPath: FLORENICDocumentPath) 
 
      
            

@@ -55,10 +55,26 @@ class FLORENICTabBarController: UITabBarController {
         FLORENICnavController.navigationBar.isHidden = true
         
         FLORENICnavController.tabBarItem.title = title
-        FLORENICnavController.tabBarItem.image = FLORENICimage.withRenderingMode(.alwaysOriginal)
-        FLORENICnavController.tabBarItem.selectedImage = FLORENIClectedImage.withRenderingMode(.alwaysOriginal)
+        FLORENICnavController.tabBarItem.image = FLORENICpetalTabImage(FLORENICimage)
+        FLORENICnavController.tabBarItem.selectedImage = FLORENICpetalTabImage(FLORENIClectedImage)
+        FLORENICnavController.tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
         rootViewController.navigationItem.title = title
         return FLORENICnavController
+    }
+    
+    private func FLORENICpetalTabImage(_ FLORENICsource: UIImage) -> UIImage {
+        let FLORENICtargetSize = CGSize(width: 28, height: 28)
+        let FLORENICsourceSize = FLORENICsource.size
+        guard FLORENICsourceSize.width > 0, FLORENICsourceSize.height > 0 else {
+            return FLORENICsource.withRenderingMode(.alwaysOriginal)
+        }
+        let FLORENICscale = min(FLORENICtargetSize.width / FLORENICsourceSize.width, FLORENICtargetSize.height / FLORENICsourceSize.height)
+        let FLORENICdrawSize = CGSize(width: FLORENICsourceSize.width * FLORENICscale, height: FLORENICsourceSize.height * FLORENICscale)
+        let FLORENICdrawOrigin = CGPoint(x: (FLORENICtargetSize.width - FLORENICdrawSize.width) / 2, y: (FLORENICtargetSize.height - FLORENICdrawSize.height) / 2)
+        let FLORENICrenderer = UIGraphicsImageRenderer(size: FLORENICtargetSize)
+        return FLORENICrenderer.image { _ in
+            FLORENICsource.draw(in: CGRect(origin: FLORENICdrawOrigin, size: FLORENICdrawSize))
+        }.withRenderingMode(.alwaysOriginal)
     }
 
     private func FLORENICSetupTabBarAppearance() {

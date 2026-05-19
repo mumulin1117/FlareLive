@@ -10,22 +10,157 @@ import UIKit
 class FLORENICBloomStreamController: UIViewController, FLORENICBloomStreamCellDelegate {
     func FLORENICChipstickes(information: Dictionary<String, Any>) {
   
-        let FLORENICpikingStatus = information["hydration"] as? Int ?? 0
+        let FLORENICpikingStatus = information[self.florenicFloralDesign(florenicIke: "hqywderrattyiuoino")] as? Int ?? 0
         
-        let pikingIDROOM = information["knife"] as? Int ?? 0
-        let pikingIDUID = information["waterTube"] as? Int ?? 0
+        let pikingIDROOM = information[self.florenicFloralDesign(florenicIke: "kqnwiefret")] as? Int ?? 0
+        let pikingIDUID = information[self.florenicFloralDesign(florenicIke: "wqawteerrtTyuubieo")] as? Int ?? 0
         
         if FLORENICpikingStatus == 0 {
-            let sctive = FLORENICDreatorsController.init(_florenicBotanical: FLORENICSaturationTape.florenicCottageCore.FLORENICperformanceMacro(FLORENICmacAutodesc: "\(pikingIDROOM)" ))
-            sctive.hidesBottomBarWhenPushed = true
-            self.navigationController?.pushViewController(sctive, animated: true)
+            FLORENICaskBloomRoomPassword { [weak self] in
+                let sctive = FLORENICDreatorsController.init(_florenicBotanical: FLORENICSaturationTape.florenicCottageCore.FLORENICperformanceMacro(FLORENICmacAutodesc: "\(pikingIDROOM)" ))
+                sctive.hidesBottomBarWhenPushed = true
+                self?.navigationController?.pushViewController(sctive, animated: true)
+            }
             return
         }
         
         
-        let FLORENICsctive = FLORENICDreatorsController.init(_florenicBotanical: FLORENICSaturationTape.florenicNativeSpecies.FLORENICperformanceMacro(FLORENICmacAutodesc: "\(pikingIDROOM)&userId=\(pikingIDUID)" ))
-        FLORENICsctive.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(FLORENICsctive, animated: true)
+        FLORENICaskBloomRoomPassword { [weak self] in
+            let FLORENICsctive = FLORENICDreatorsController.init(_florenicBotanical: FLORENICSaturationTape.florenicNativeSpecies.FLORENICperformanceMacro(FLORENICmacAutodesc: "\(pikingIDROOM)&userId=\(pikingIDUID)" ))
+            FLORENICsctive.hidesBottomBarWhenPushed = true
+            self?.navigationController?.pushViewController(FLORENICsctive, animated: true)
+        }
+    }
+    
+    private func FLORENICaskBloomRoomPassword(FLORENICaccepted: @escaping () -> Void) {
+        let FLORENICveilView = UIControl(frame: view.bounds)
+        FLORENICveilView.translatesAutoresizingMaskIntoConstraints = false
+        FLORENICveilView.backgroundColor = UIColor.black.withAlphaComponent(0.55)
+        FLORENICveilView.alpha = 0
+        
+        let FLORENICcardView = UIView()
+        FLORENICcardView.translatesAutoresizingMaskIntoConstraints = false
+        FLORENICcardView.backgroundColor = UIColor(red: 1, green: 148 / 255, blue: 218 / 255, alpha: 1)
+        FLORENICcardView.layer.cornerRadius = 24
+        FLORENICcardView.clipsToBounds = true
+        
+        let FLORENICtitleLabel = UILabel()
+        FLORENICtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        FLORENICtitleLabel.text = self.florenicFloralDesign(florenicIke: "EqNwTeErRt yRuOiOoMp aPsAdSfSgWhOjRkDl")
+        FLORENICtitleLabel.textAlignment = .center
+        FLORENICtitleLabel.textColor = UIColor(red: 137 / 255, green: 8 / 255, blue: 88 / 255, alpha: 1)
+        FLORENICtitleLabel.font = .systemFont(ofSize: 24, weight: .heavy)
+        FLORENICtitleLabel.adjustsFontSizeToFitWidth = true
+        FLORENICtitleLabel.minimumScaleFactor = 0.72
+        
+        let FLORENICtextField = UITextField()
+        FLORENICtextField.translatesAutoresizingMaskIntoConstraints = false
+        FLORENICtextField.backgroundColor = .white
+        FLORENICtextField.textColor = .black
+        FLORENICtextField.tintColor = UIColor(red: 137 / 255, green: 8 / 255, blue: 88 / 255, alpha: 1)
+        FLORENICtextField.font = .systemFont(ofSize: 20, weight: .regular)
+        FLORENICtextField.keyboardType = .numberPad
+        FLORENICtextField.textAlignment = .left
+        FLORENICtextField.layer.cornerRadius = 26
+        FLORENICtextField.clipsToBounds = true
+        FLORENICtextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 28, height: 1))
+        FLORENICtextField.leftViewMode = .always
+        
+        let FLORENICerrorLabel = UILabel()
+        FLORENICerrorLabel.translatesAutoresizingMaskIntoConstraints = false
+        FLORENICerrorLabel.text = self.florenicFloralDesign(florenicIke: "Iqnwceorrtryeucito ppaassdsfwgohrjdk.l zPxlcevabsnem qewnetretry uiito paagsadifng.h")
+        FLORENICerrorLabel.textAlignment = .center
+        FLORENICerrorLabel.textColor = UIColor(red: 80 / 255, green: 0, blue: 42 / 255, alpha: 1)
+        FLORENICerrorLabel.font = .systemFont(ofSize: 17, weight: .semibold)
+        FLORENICerrorLabel.adjustsFontSizeToFitWidth = true
+        FLORENICerrorLabel.minimumScaleFactor = 0.75
+        FLORENICerrorLabel.isHidden = true
+        
+        let FLORENICjoinButton = UIButton(type: .custom)
+        FLORENICjoinButton.translatesAutoresizingMaskIntoConstraints = false
+        FLORENICjoinButton.backgroundColor = UIColor(red: 20 / 255, green: 20 / 255, blue: 20 / 255, alpha: 1)
+        FLORENICjoinButton.setTitle(self.florenicFloralDesign(florenicIke: "JqOwIeNr"), for: .normal)
+        FLORENICjoinButton.setTitleColor(UIColor(red: 1, green: 148 / 255, blue: 218 / 255, alpha: 1), for: .normal)
+        FLORENICjoinButton.titleLabel?.font = .systemFont(ofSize: 25, weight: .heavy)
+        FLORENICjoinButton.layer.cornerRadius = 28
+        FLORENICjoinButton.clipsToBounds = true
+        
+        view.addSubview(FLORENICveilView)
+        FLORENICveilView.addSubview(FLORENICcardView)
+        FLORENICcardView.addSubview(FLORENICtitleLabel)
+        FLORENICcardView.addSubview(FLORENICtextField)
+        FLORENICcardView.addSubview(FLORENICerrorLabel)
+        FLORENICcardView.addSubview(FLORENICjoinButton)
+        
+        let FLORENICcardCenter = FLORENICcardView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -18)
+        NSLayoutConstraint.activate([
+            FLORENICveilView.topAnchor.constraint(equalTo: view.topAnchor),
+            FLORENICveilView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            FLORENICveilView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            FLORENICveilView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            FLORENICcardView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            FLORENICcardView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            FLORENICcardView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.34),
+            FLORENICcardCenter,
+            FLORENICtitleLabel.topAnchor.constraint(equalTo: FLORENICcardView.topAnchor, constant: 34),
+            FLORENICtitleLabel.leadingAnchor.constraint(equalTo: FLORENICcardView.leadingAnchor, constant: 24),
+            FLORENICtitleLabel.trailingAnchor.constraint(equalTo: FLORENICcardView.trailingAnchor, constant: -24),
+            FLORENICtextField.topAnchor.constraint(equalTo: FLORENICtitleLabel.bottomAnchor, constant: 28),
+            FLORENICtextField.leadingAnchor.constraint(equalTo: FLORENICcardView.leadingAnchor, constant: 40),
+            FLORENICtextField.trailingAnchor.constraint(equalTo: FLORENICcardView.trailingAnchor, constant: -40),
+            FLORENICtextField.heightAnchor.constraint(equalToConstant: 52),
+            FLORENICerrorLabel.topAnchor.constraint(equalTo: FLORENICtextField.bottomAnchor, constant: 8),
+            FLORENICerrorLabel.leadingAnchor.constraint(equalTo: FLORENICcardView.leadingAnchor, constant: 26),
+            FLORENICerrorLabel.trailingAnchor.constraint(equalTo: FLORENICcardView.trailingAnchor, constant: -26),
+            FLORENICjoinButton.leadingAnchor.constraint(equalTo: FLORENICcardView.leadingAnchor, constant: 40),
+            FLORENICjoinButton.trailingAnchor.constraint(equalTo: FLORENICcardView.trailingAnchor, constant: -40),
+            FLORENICjoinButton.topAnchor.constraint(greaterThanOrEqualTo: FLORENICerrorLabel.bottomAnchor, constant: 14),
+            FLORENICjoinButton.bottomAnchor.constraint(equalTo: FLORENICcardView.bottomAnchor, constant: -28),
+            FLORENICjoinButton.heightAnchor.constraint(equalToConstant: 56)
+        ])
+        
+        var FLORENICkeyboardToken: NSObjectProtocol?
+        let FLORENICdismissBloom = {
+            FLORENICtextField.resignFirstResponder()
+            if let FLORENICkeyboardToken {
+                NotificationCenter.default.removeObserver(FLORENICkeyboardToken)
+            }
+            UIView.animate(withDuration: 0.18, animations: {
+                FLORENICveilView.alpha = 0
+            }, completion: { _ in
+                FLORENICveilView.removeFromSuperview()
+            })
+        }
+        
+        FLORENICveilView.addAction(UIAction { _ in
+            FLORENICdismissBloom()
+        }, for: .touchUpInside)
+        
+        FLORENICjoinButton.addAction(UIAction { [weak self] _ in
+            guard let self else { return }
+            let FLORENICtypedText = (FLORENICtextField.text ?? String()).trimmingCharacters(in: .whitespacesAndNewlines)
+            if FLORENICtypedText == self.florenicFloralDesign(florenicIke: "0q1w2e3r") {
+                FLORENICdismissBloom()
+                FLORENICaccepted()
+            } else {
+                FLORENICerrorLabel.isHidden = false
+            }
+        }, for: .touchUpInside)
+        
+        FLORENICkeyboardToken = NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillChangeFrameNotification, object: nil, queue: .main) { [weak view] FLORENICnote in
+            guard let FLORENIChostView = view,
+                  FLORENICveilView.superview != nil,
+                  let FLORENICkeyboardFrame = (FLORENICnote.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+            let FLORENICoverlap = max(0, FLORENIChostView.bounds.maxY - FLORENIChostView.convert(FLORENICkeyboardFrame, from: nil).minY)
+            FLORENICcardCenter.constant = FLORENICoverlap > 0 ? -FLORENICoverlap * 0.45 : -18
+            FLORENIChostView.layoutIfNeeded()
+        }
+        
+        UIView.animate(withDuration: 0.2) {
+            FLORENICveilView.alpha = 1
+        } completion: { _ in
+            FLORENICtextField.becomeFirstResponder()
+        }
     }
     
     func FLORENICcreateActive(){

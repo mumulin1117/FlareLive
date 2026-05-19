@@ -29,8 +29,7 @@ class FLORENICBloodDreamCell: UITableViewCell {
      lazy var FLORENICSeasonalLabel: UILabel = {
         let FLORENIClabel = UILabel()
         
-        FLORENIClabel.font = UIFont.systemFont(ofSize: 16, weight: .heavy) // weight="heavy" pointSize="16"
-        // textColor: RGB 0.078, 0.078, 0.078 (深灰色)
+        FLORENIClabel.font = UIFont.systemFont(ofSize: 16, weight: .heavy) 
         FLORENIClabel.textColor = UIColor(red: 0.078, green: 0.078, blue: 0.078, alpha: 1.0)
         FLORENIClabel.translatesAutoresizingMaskIntoConstraints = false
         return FLORENIClabel
@@ -40,8 +39,7 @@ class FLORENICBloodDreamCell: UITableViewCell {
      lazy var FLORENICComplementaryLabel: UILabel = {
         let FLORENIClabel = UILabel()
        
-        FLORENIClabel.font = UIFont.systemFont(ofSize: 10, weight: .heavy) // weight="heavy" pointSize="10"
-        // textColor: Black with 0.518 alpha (半透明黑色)
+        FLORENIClabel.font = UIFont.systemFont(ofSize: 10, weight: .heavy)
         FLORENIClabel.textColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5188337)
         FLORENIClabel.translatesAutoresizingMaskIntoConstraints = false
         return FLORENIClabel
@@ -111,10 +109,10 @@ class FLORENICBloodDreamCell: UITableViewCell {
     }
     
     private func applyFLORENICStyle() {
-        // 还原 awakeFromNib 中的设置
+        
         self.selectionStyle = .none
         
-        // 通常头像需要设置为圆形
+        
         FLORENICLushImageView.layer.cornerRadius = 64 / 2
     }
 }
