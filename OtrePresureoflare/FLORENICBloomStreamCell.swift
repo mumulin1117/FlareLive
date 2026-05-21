@@ -210,10 +210,9 @@ class FLORENICBloomStreamCell: UITableViewCell {
     }
     
     private func applyFLORENICStyleAndDelegate() {
-        // 还原 awakeFromNib 中的设置
+       
         self.selectionStyle = .none
         
-        // 还原 FLORENICfragranceFree 和 FLORENICcoolChain 的逻辑
         FLORENICfragranceFree()
     }
     
@@ -223,7 +222,7 @@ class FLORENICBloomStreamCell: UITableViewCell {
         FLORENICcoolChain()
     }
     
-    // 对应 FLORENICcoolChain()
+    
     private func FLORENICcoolChain() {
 
         FLORENICAsparagusFernCollectionView.delegate = self

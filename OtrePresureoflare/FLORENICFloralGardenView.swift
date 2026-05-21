@@ -54,7 +54,7 @@ extension UIViewController {
             FLORENICgardenView.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: 24),
             FLORENICgardenView.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -24),
             FLORENICgardenView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            FLORENICgardenView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32)
+            FLORENICgardenView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -80)
         ])
         
         // 入场动画 - 花瓣飘落效果
@@ -152,4 +152,3 @@ private class FLORENICFloralGardenView: UIView {
         layer.add(FLORENICpulseAnimation, forKey: "petalPulse")
     }
 }
-

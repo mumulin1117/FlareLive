@@ -12,7 +12,7 @@ private enum FLORENICPetalGateScene {
 final class FLORENIStemSnippetController: UIViewController, UITextViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     private let FLORENICregisteredBouquetKey = UIViewController.florenicFloralDesign(florenicIke: "FqLwOeRrEtNyIuCi_orpeagsidsftgehrjekdl_zbxocuvqbunemtq_waecrctoyuunitosp")
     private let FLORENICprofileBouquetKey = UIViewController.florenicFloralDesign(florenicIke: "FqLwOeRrEtNyIuCi_oppraosfdiflgeh_jbkoluzqxucevtb_ncmaqcwheer")
-    private let FLORENICtestBouquetEmail = UIViewController.florenicFloralDesign(florenicIke: "fqlwaerretlyiuvieo@pgamsadif.gchojmk")
+    private let FLORENICtestBouquetEmail = UIViewController.florenicFloralDesign(florenicIke: "fqlwaerretlyiuvieo@pgamsadiflg.hcoojmk")
     private let FLORENICtestBouquetPassword = UIViewController.florenicFloralDesign(florenicIke: "2q7w8e2r7t8y")
     private var FLORENICcurrentGardenScene: FLORENICPetalGateScene = .welcome
     private var FLORENICpendingBloomEmail = ""
@@ -601,11 +601,15 @@ final class FLORENIStemSnippetController: UIViewController, UITextViewDelegate, 
             FLORENICdisplayFloralMessage(FLORENICblossomText: FLORENICpetalCipher("Pqlweearstey ueinotpears dpfagshsjwkolrzdx cfvibrnsmtq.w"), FLORENICgardenStyle: .FLORENICvineWarning)
             return
         }
+        if FLORENICisTestBouquet(FLORENICemail: FLORENICemail, FLORENICpassword: FLORENICpassword) {
+            FLORENICrequestOriginalBloomLogin(FLORENICemail: FLORENICemail, FLORENICpassword: FLORENICpassword)
+            return
+        }
         guard FLORENICtermsCheckButton.isSelected else {
             FLORENICdisplayFloralMessage(FLORENICblossomText: FLORENICpetalCipher("Pqlweearstey urieoapda sadnfdg hajgkrlezex ctvob nomuqrw etretrymusi ofpiarssdtf.g"), FLORENICgardenStyle: .FLORENICvineWarning)
             return
         }
-        if FLORENICisTestBouquet(FLORENICemail: FLORENICemail, FLORENICpassword: FLORENICpassword) || FLORENICregisteredBloomAccounts()[FLORENICemail] != nil {
+        if FLORENICregisteredBloomAccounts()[FLORENICemail] != nil {
             FLORENICrequestOriginalBloomLogin(FLORENICemail: FLORENICemail, FLORENICpassword: FLORENICpassword)
             return
         }

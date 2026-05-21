@@ -58,7 +58,7 @@ class FLORENICBloomStreamController: UIViewController, FLORENICBloomStreamCellDe
         FLORENICtextField.backgroundColor = .white
         FLORENICtextField.textColor = .black
         FLORENICtextField.tintColor = UIColor(red: 137 / 255, green: 8 / 255, blue: 88 / 255, alpha: 1)
-        FLORENICtextField.font = .systemFont(ofSize: 20, weight: .regular)
+        FLORENICtextField.font = .systemFont(ofSize: 17, weight: .regular)
         FLORENICtextField.keyboardType = .numberPad
         FLORENICtextField.textAlignment = .left
         FLORENICtextField.layer.cornerRadius = 26
@@ -100,7 +100,7 @@ class FLORENICBloomStreamController: UIViewController, FLORENICBloomStreamCellDe
             FLORENICveilView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             FLORENICcardView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             FLORENICcardView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            FLORENICcardView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.34),
+            FLORENICcardView.heightAnchor.constraint(equalToConstant: 280),
             FLORENICcardCenter,
             FLORENICtitleLabel.topAnchor.constraint(equalTo: FLORENICcardView.topAnchor, constant: 34),
             FLORENICtitleLabel.leadingAnchor.constraint(equalTo: FLORENICcardView.leadingAnchor, constant: 24),
@@ -174,8 +174,6 @@ class FLORENICBloomStreamController: UIViewController, FLORENICBloomStreamCellDe
     
     private var FLORENICearthiness:Array<Dictionary<String,Any>> = Array<Dictionary<String,Any>>()
     
-    
-    // 对应 Storyboard 中的 image="FLORENICupcycle"
         private lazy var FLORENIClogoImageView: UIImageView = {
             let FLORENICimageView = UIImageView()
             FLORENICimageView.image =  FLORENICResourceLoader.shared.FLORENICImage(named: "FLORENICupcycle")
@@ -184,8 +182,6 @@ class FLORENICBloomStreamController: UIViewController, FLORENICBloomStreamCellDe
             return FLORENICimageView
         }()
         
-        // 对应 Storyboard 中的 image="FLORENICgluing"
-        // 对应 Storyboard 中的 action="gypsophila:"
         private lazy var FLORENICactionButton: UIButton = {
             let FLORENICbutton = UIButton(type: .custom)
             FLORENICbutton.setImage(FLORENICResourceLoader.shared.FLORENICImage(named: "FLORENICgluing"), for: .normal)
@@ -194,7 +190,6 @@ class FLORENICBloomStreamController: UIViewController, FLORENICBloomStreamCellDe
             return FLORENICbutton
         }()
         
-        // 对应 Storyboard 中的 outlet property="solidago"
         private lazy var FLORENICsolidago: UITableView = {
             let FLORENICtableView = UITableView(frame: .zero, style: .plain)
             FLORENICtableView.backgroundColor = .clear // [cite: 126]
@@ -213,10 +208,10 @@ class FLORENICBloomStreamController: UIViewController, FLORENICBloomStreamCellDe
         FLORENICjoice()
     }
     private func FLORENICsetupUI() {
-            // 设置背景颜色，RGB: 0.078, 0.078, 0.078
+           
             self.view.backgroundColor = UIColor(red: 0.078, green: 0.078, blue: 0.078, alpha: 1.0)
             
-            // 添加子视图
+           
             self.view.addSubview(FLORENIClogoImageView)
             self.view.addSubview(FLORENICactionButton)
             self.view.addSubview(FLORENICsolidago)
@@ -236,8 +231,6 @@ class FLORENICBloomStreamController: UIViewController, FLORENICBloomStreamCellDe
                 // Height: 44
                 FLORENIClogoImageView.heightAnchor.constraint(equalToConstant: 44),
                 
-                // --- Action Button Constraints [cite: 122, 128, 130] ---
-                // Trailing: Safe Area Trailing - 20
                 FLORENICactionButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -20),
                 // CenterY: 对齐 Logo Image 的中心
                 FLORENICactionButton.centerYAnchor.constraint(equalTo: FLORENIClogoImageView.centerYAnchor),
@@ -246,12 +239,11 @@ class FLORENICBloomStreamController: UIViewController, FLORENICBloomStreamCellDe
                 // Height: 32
                 FLORENICactionButton.heightAnchor.constraint(equalToConstant: 32),
                 
-                // --- TableView (solidago) Constraints [cite: 128, 129] ---
-                // Top: Logo Image Bottom + 22
+               
                 FLORENICsolidago.topAnchor.constraint(equalTo: FLORENIClogoImageView.bottomAnchor, constant: 22),
-                // Leading: Safe Area Leading + 16
+              
                 FLORENICsolidago.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
-                // Trailing: Safe Area Trailing - 16
+              
                 FLORENICsolidago.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16),
                 // Bottom: Superview Bottom (0)
                 FLORENICsolidago.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)

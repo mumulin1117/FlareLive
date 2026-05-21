@@ -13,7 +13,6 @@ import StoreKit
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    //Password to enter the live stream:0123
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -21,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FLORENICResourceLoader.shared.FLORENICPrepareResourcesIfNeeded()
         let horticulture = UIScreen.main.bounds
         window = UIWindow(frame: horticulture)
+        window?.overrideUserInterfaceStyle = .light
         FLORENICchallenge()
         self.window?.makeKeyAndVisible()
         return true
@@ -43,4 +43,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
    }
 }
-
