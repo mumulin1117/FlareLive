@@ -18,7 +18,7 @@ class FLORENICDreatorsController: UIViewController, WKScriptMessageHandler {
         let commonName: String
         var seasonality: FlorenicSeasonality
         let isLocallySourced: Bool
-        let carbonFootprintRating: Int // 1-5, 越低越好
+        let carbonFootprintRating: Int
         let biodegradabilityDays: Int?
         
         let companionPlants: [String]
@@ -27,7 +27,7 @@ class FLORENICDreatorsController: UIViewController, WKScriptMessageHandler {
         var sustainabilityScore: Int {
             var score = 0
             if isLocallySourced { score += 2 }
-            score += (6 - carbonFootprintRating) // 反转评分
+            score += (6 - carbonFootprintRating)
             if biodegradabilityDays ?? 0 < 30 { score += 2 }
             
             return min(score, 10)
@@ -47,7 +47,7 @@ class FLORENICDreatorsController: UIViewController, WKScriptMessageHandler {
                 self.view.isUserInteractionEnabled = true
                 switch seed {
                 case .success(let _):
-                    self.florenicColorPalette?.evaluateJavaScript("triangular()", completionHandler: nil)
+                    self.florenicColorPalette?.evaluateJavaScript("conditioning()", completionHandler: nil)
                     self.FLORENICdisplayFloralMessage(FLORENICblossomText: self.florenicFloralDesign(florenicIke: "Pxaoym tsiukcocnexsysnfguklv!"), FLORENICgardenStyle: .FLORENICblossomSuccess)
                 case .failure(let error):
                     self.FLORENICdisplayFloralMessage(FLORENICblossomText: error.localizedDescription, FLORENICgardenStyle: .FLORENICbudInfo)
@@ -56,12 +56,7 @@ class FLORENICDreatorsController: UIViewController, WKScriptMessageHandler {
             }
             return
         }
-        
-        if message.name == "conditioning" {
-            FLORENICdisplayFloralMessage(FLORENICblossomText: self.florenicFloralDesign(florenicIke: "pjaayk wsuuhcvcaemslszfkucli!"), FLORENICgardenStyle: .FLORENICblossomSuccess)
-           
-            return
-        }
+     
         
         if message.name == "weaving" || message.name == "succulent" {
             if let measdbody =  message.body as? String{
@@ -158,7 +153,7 @@ class FLORENICDreatorsController: UIViewController, WKScriptMessageHandler {
         
         let FLORENIChandlers = [
                "scissors", "conditioning", "weaving",
-                "triangular", "gypsophila","alstroemeria","succulent","eucalyptus"
+                 "gypsophila","alstroemeria","succulent","eucalyptus"
            
         ]
         
