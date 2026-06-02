@@ -155,7 +155,9 @@ extension FLORENICBuddingNookController: UICollectionViewDelegate, UICollectionV
         let FLORENIC = FLORENICswiftuSiaki[indexPath.row]
         sourcingFLORENIC.FLORENIClacquer.FLORENICloadImage(from: (FLORENIC["spiral"] as? Array<String> ?? []).first ?? "" ) 
         sourcingFLORENIC.FLORENICseasonal.text = FLORENIC["summer"] as? String
-        sourcingFLORENIC.FLORENICepoxy.addTarget(self, action: #selector(FLORENICreport), for: .touchUpInside)
+        sourcingFLORENIC.FLORENICepoxy.tag = indexPath.row
+        sourcingFLORENIC.FLORENICepoxy.removeTarget(nil, action: nil, for: .touchUpInside)
+        sourcingFLORENIC.FLORENICepoxy.addTarget(self, action: #selector(FLORENICpetalConcern(_:)), for: .touchUpInside)
         return sourcingFLORENIC
     }
     
@@ -164,6 +166,27 @@ extension FLORENICBuddingNookController: UICollectionViewDelegate, UICollectionV
        let sctive = FLORENICDreatorsController.init(_florenicBotanical: FLORENICSaturationTape.FLORENICpattern.FLORENICperformanceMacro())
        sctive.hidesBottomBarWhenPushed = true
        self.navigationController?.pushViewController(sctive, animated: true)
+    }
+    
+    @objc private func FLORENICpetalConcern(_ FLORENICsender: UIButton) {
+        let FLORENICindex = FLORENICsender.tag
+        guard FLORENICswiftuSiaki.indices.contains(FLORENICindex) else { return }
+        let FLORENICsheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        FLORENICsheet.addAction(UIAlertAction(title: self.florenicFloralDesign(florenicIke: "Bxlyoxcxk"), style: .destructive) { [weak self] _ in
+            guard let self, self.FLORENICswiftuSiaki.indices.contains(FLORENICindex) else { return }
+            self.FLORENICswiftuSiaki.remove(at: FLORENICindex)
+            self.FLORENICroseSpray.reloadData()
+        })
+        FLORENICsheet.addAction(UIAlertAction(title: self.florenicFloralDesign(florenicIke: "Rxeypuoirpt"), style: .default) { [weak self] _ in
+            self?.FLORENICreport()
+        })
+        FLORENICsheet.addAction(UIAlertAction(title: self.florenicFloralDesign(florenicIke: "Cxaynucweql"), style: .cancel))
+        if let FLORENICpopover = FLORENICsheet.popoverPresentationController {
+            FLORENICpopover.sourceView = FLORENICsender
+            FLORENICpopover.sourceRect = FLORENICsender.bounds
+            FLORENICpopover.permittedArrowDirections = [.up, .down]
+        }
+        present(FLORENICsheet, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

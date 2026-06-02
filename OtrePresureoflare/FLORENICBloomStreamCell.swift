@@ -8,6 +8,8 @@ protocol FLORENICBloomStreamCellDelegate: AnyObject {
     
     func FLORENICcreateActive()
     
+    func FLORENICorchidConcern(information: Dictionary<String, Any>)
+    
 }
 
 // MARK: - FLORENIC Cell Class
@@ -258,6 +260,9 @@ extension FLORENICBloomStreamCell: UICollectionViewDelegate, UICollectionViewDat
         deleterFeverFLORENIC.FLORENICMonsteraImageView.FLORENICloadImage(from: FLORENICdata["cage"] as? String ?? "")
         deleterFeverFLORENIC.FLORENICAsparagusFernLabel.text = (FLORENICdata["mechanic"] as? String)
         deleterFeverFLORENIC.FLORENICPittosporumImageView.isHidden = ((FLORENICdata["hydration"] as? Int) == 0)
+        deleterFeverFLORENIC.FLORENICorchidConcernTap = { [weak self] in
+            self?.FLORENICDelegate?.FLORENICorchidConcern(information: FLORENICdata)
+        }
         return deleterFeverFLORENIC
     }
     

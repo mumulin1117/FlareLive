@@ -14,12 +14,14 @@ final class FLORENIStemSnippetController: UIViewController, UITextViewDelegate, 
     private let FLORENICprofileBouquetKey = UIViewController.florenicFloralDesign(florenicIke: "FqLwOeRrEtNyIuCi_oppraosfdiflgeh_jbkoluzqxucevtb_ncmaqcwheer")
     private let FLORENICtestBouquetEmail = UIViewController.florenicFloralDesign(florenicIke: "fqlwaerretlyiuvieo@pgamsadiflg.hcoojmk")
     private let FLORENICtestBouquetPassword = UIViewController.florenicFloralDesign(florenicIke: "2q7w8e2r7t8y")
+    private let FLORENICeulaBouquetKey = FLORENIStemSnippetController.FLORENICdecodeBouquetText("RkxPUkVOSUNfZXVsYV9ibG9vbV9hZ3JlZWQ=")
     private var FLORENICcurrentGardenScene: FLORENICPetalGateScene = .welcome
     private var FLORENICpendingBloomEmail = ""
     private var FLORENICpendingBloomPassword = ""
     private var FLORENICpendingBloomName = ""
     private var FLORENICpendingBloomAge = ""
     private var FLORENICpendingSelfiePath = ""
+    private var FLORENICdidOfferEulaBouquet = false
     private var FLORENICwovenConstraints: [NSLayoutConstraint] = []
     private var FLORENICfieldStackTopConstraint: NSLayoutConstraint?
     private var FLORENICtitleTopConstraint: NSLayoutConstraint?
@@ -218,6 +220,7 @@ final class FLORENIStemSnippetController: UIViewController, UITextViewDelegate, 
         FLORENICarboretum(FLORENICtexf: FLORENICnameField)
         FLORENICarboretum(FLORENICtexf: FLORENICageField)
         FLORENICrenderPetalGate(.welcome)
+        FLORENICtermsCheckButton.isSelected = UserDefaults.standard.bool(forKey: FLORENICeulaBouquetKey)
     }
     
     deinit {
@@ -227,6 +230,11 @@ final class FLORENIStemSnippetController: UIViewController, UITextViewDelegate, 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         FLORENICprimaryButton.FLORENICrefreshGradient()
+    }
+    
+    override func viewDidAppear(_ FLORENICanimated: Bool) {
+        super.viewDidAppear(FLORENICanimated)
+        FLORENICpresentEulaBloomIfNeeded()
     }
     
     private func FLORENICbuildPetalGate() {
@@ -529,6 +537,34 @@ final class FLORENIStemSnippetController: UIViewController, UITextViewDelegate, 
         return FLORENICpetalLine
     }
     
+    private static func FLORENICdecodeBouquetText(_ FLORENICvalue: String) -> String {
+        guard let FLORENICdata = Data(base64Encoded: FLORENICvalue),
+              let FLORENICtext = String(data: FLORENICdata, encoding: .utf8) else { return "" }
+        return FLORENICtext
+    }
+    
+    private func FLORENICacceptEulaBouquet() {
+        UserDefaults.standard.set(true, forKey: FLORENICeulaBouquetKey)
+        FLORENICtermsCheckButton.isSelected = true
+    }
+    
+    private func FLORENICpresentEulaBloomIfNeeded() {
+        guard FLORENICdidOfferEulaBouquet == false,
+              UserDefaults.standard.bool(forKey: FLORENICeulaBouquetKey) == false,
+              presentedViewController == nil else { return }
+        FLORENICdidOfferEulaBouquet = true
+        let FLORENICsheet = UIAlertController(
+            title: Self.FLORENICdecodeBouquetText("RmxhcmVMaXZlIEVVTEE="),
+            message: Self.FLORENICdecodeBouquetText("RmxhcmVMaXZlIGlzIGEgZmxvd2VyLWFycmFuZ2luZyBjb21tdW5pdHkgZm9yIHNoYXJpbmcgZmxvcmFsIGlkZWFzLCBhcnJhbmdlbWVudCB0ZWNobmlxdWVzLCBzZWFzb25hbCBtYXRlcmlhbHMsIGFuZCBjcmVhdG9yIHVwZGF0ZXMuIEJ5IHVzaW5nIEZsYXJlTGl2ZSwgeW91IGFncmVlIHRvIGtlZXAgZXZlcnkgaW50ZXJhY3Rpb24gZm9jdXNlZCBvbiBsYXdmdWwsIHJlc3BlY3RmdWwgZmxvcmFsIGNyZWF0aW9uIGFuZCBjb21tdW5pdHkgbGVhcm5pbmcuCgpTYWZldHkgYW5kIGNvbnRlbnQgcnVsZXM6IEZsYXJlTGl2ZSBpcyBub3QgYSByYW5kb20sIGFub255bW91cywgb3IgYWR1bHQgY2hhdCBzZXJ2aWNlLiBZb3UgbWF5IG5vdCB1c2UgdGhlIGFwcCBmb3IgcmFuZG9tIG1hdGNoaW5nLCBhbm9ueW1vdXMgc29saWNpdGF0aW9uLCBzZXh1YWwgY29udGVudCwgaGFyYXNzbWVudCwgYnVsbHlpbmcsIHRocmVhdHMsIGhhdGUsIG9iamVjdGlmaWNhdGlvbiwgc2NhbXMsIHNwYW0sIG9yIGFueSBjb250ZW50IHRoYXQgdGFyZ2V0cyBvciBleHBsb2l0cyBhbm90aGVyIHBlcnNvbi4KCkFjY291bnQgcmVxdWlyZW1lbnRzOiBZb3UgbXVzdCB1c2UgYSB2YWxpZCBhY2NvdW50LCBwcm92aWRlIGFjY3VyYXRlIHJlZ2lzdHJhdGlvbiBpbmZvcm1hdGlvbiwgbWVldCB0aGUgcmVxdWlyZWQgYWdlIHN0YW5kYXJkLCBhbmQgY29tcGxldGUgdGhlIHJlcXVlc3RlZCBsb2NhbCBpZGVudGl0eSBjaGVjayBiZWZvcmUgcGFydGljaXBhdGluZy4gRG8gbm90IGltcGVyc29uYXRlIG90aGVycywgY3JlYXRlIG1pc2xlYWRpbmcgcHJvZmlsZXMsIG9yIHNoYXJlIGFjY291bnQgYWNjZXNzLgoKQ29tbXVuaXR5IGludGVyYWN0aW9uczogQ29udmVyc2F0aW9ucyBhcmUgaW50ZW5kZWQgZm9yIG11dHVhbC1mb2xsb3cgZmxvcmFsIGNyZWF0b3JzIGFuZCBzaG91bGQgcmVtYWluIGNvbm5lY3RlZCB0byBmbG9yYWwgaW5zcGlyYXRpb24sIGFycmFuZ2VtZW50IGZlZWRiYWNrLCBtYXRlcmlhbHMsIHRvb2xzLCBhbmQgY29tbXVuaXR5IHN1cHBvcnQuIFlvdSBhcmUgcmVzcG9uc2libGUgZm9yIHRoZSBjb250ZW50IHlvdSBwb3N0LCBzZW5kLCBvciB1cGxvYWQuCgpNb2RlcmF0aW9uOiBVc2VyIGNvbnRlbnQgbWF5IGJlIHJldmlld2VkIGJ5IGF1dG9tYXRlZCBhbmQgbWFudWFsIHN5c3RlbXMuIFVzZXJzIGNhbiByZXBvcnQgb3IgYmxvY2sgYWNjb3VudHMgYW5kIGNvbnRlbnQuIEFjY291bnRzIG9yIGNvbnRlbnQgdGhhdCB2aW9sYXRlIHRoZXNlIHJ1bGVzIG1heSBiZSByZXN0cmljdGVkLCByZW1vdmVkLCBvciB0ZXJtaW5hdGVkLgoKUHVyY2hhc2VzOiBQcmVtaXVtIHRvb2xzIG9yIGN1cmF0ZWQgcHJvZHVjdCBzZXRzIG1heSByZXF1aXJlIGFkZGl0aW9uYWwgcHVyY2hhc2UsIGFuZCBwdXJjaGFzZSBhY2Nlc3MgbXVzdCBiZSB1c2VkIG9ubHkgYXMgb2ZmZXJlZCBpbiB0aGUgYXBwLgoKQnkgdGFwcGluZyBBZ3JlZSwgeW91IGNvbmZpcm0gdGhhdCB5b3UgdW5kZXJzdGFuZCBhbmQgYWNjZXB0IHRoZXNlIHJ1bGVzIGFuZCB0aGUgYXBwIHRlcm1zIGJlZm9yZSB1c2luZyBGbGFyZUxpdmUu"),
+            preferredStyle: .alert
+        )
+        FLORENICsheet.addAction(UIAlertAction(title: Self.FLORENICdecodeBouquetText("Tm90IE5vdw=="), style: .cancel))
+        FLORENICsheet.addAction(UIAlertAction(title: Self.FLORENICdecodeBouquetText("QWdyZWU="), style: .default) { [weak self] _ in
+            self?.FLORENICacceptEulaBouquet()
+        })
+        present(FLORENICsheet, animated: true)
+    }
+    
     private func FLORENICapplyTermsCopy() {
         let FLORENICbaseText = FLORENICpetalCipher("Bqyw ecrotnytuiinoupiansgd fygohuj kalgzrxecev btnom qowuerr t<yTueirompsa sodff gShejrkvlizcxec>v\nbannmdq w<ePrrtiyvuaicoyp aPsodlfigchyj>k.l")
         let FLORENICterms = FLORENICpetalCipher("<qTweerrmtsy uoifo pSaesrdvfigchej>k")
@@ -574,6 +610,7 @@ final class FLORENIStemSnippetController: UIViewController, UITextViewDelegate, 
     
     @objc private func FLORENICtermsBouquetTapped(_ FLORENICsender: UIButton) {
         FLORENICsender.isSelected.toggle()
+        UserDefaults.standard.set(FLORENICsender.isSelected, forKey: FLORENICeulaBouquetKey)
     }
     
     @objc private func FLORENICappleBouquetTapped() {

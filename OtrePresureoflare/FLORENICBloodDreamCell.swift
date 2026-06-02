@@ -8,6 +8,8 @@
 import UIKit
 
 class FLORENICBloodDreamCell: UITableViewCell {
+    
+    var FLORENICdaisyConcernTap: (() -> Void)?
 
      lazy var FLORENICLushImageView: UIImageView = {
         let FLORENICimageView = UIImageView()
@@ -55,6 +57,18 @@ class FLORENICBloodDreamCell: UITableViewCell {
         return FLORENICimageView
     }()
     
+    lazy var FLORENICDaisyButton: UIButton = {
+        let FLORENICbutton = UIButton(type: .custom)
+        FLORENICbutton.translatesAutoresizingMaskIntoConstraints = false
+        FLORENICbutton.backgroundColor = UIColor(red: 0.078, green: 0.078, blue: 0.078, alpha: 0.78)
+        FLORENICbutton.tintColor = .white
+        FLORENICbutton.setImage(UIImage(systemName: "exclamationmark.bubble.fill"), for: .normal)
+        FLORENICbutton.layer.cornerRadius = 14
+        FLORENICbutton.layer.masksToBounds = true
+        FLORENICbutton.addTarget(self, action: #selector(FLORENICdaisyConcernPressed), for: .touchUpInside)
+        return FLORENICbutton
+    }()
+    
     // MARK: - Initialization
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -76,6 +90,7 @@ class FLORENICBloodDreamCell: UITableViewCell {
         contentView.addSubview(FLORENICSeasonalLabel)
         contentView.addSubview(FLORENICComplementaryLabel)
         contentView.addSubview(FLORENICRecutImageView)
+        contentView.addSubview(FLORENICDaisyButton)
     }
     
     private func setupFLORENICConstraints() {
@@ -104,7 +119,12 @@ class FLORENICBloodDreamCell: UITableViewCell {
 
             // 5. FLORENICComplementaryLabel (ID: kJ0-Tl-4PS, Subtitle/Joined)
             FLORENICComplementaryLabel.leadingAnchor.constraint(equalTo: FLORENICGardenImageView.trailingAnchor, constant: 8), // leading: Icon right + 8
-            FLORENICComplementaryLabel.centerYAnchor.constraint(equalTo: FLORENICGardenImageView.centerYAnchor) // centerY to Icon centerY
+            FLORENICComplementaryLabel.centerYAnchor.constraint(equalTo: FLORENICGardenImageView.centerYAnchor), // centerY to Icon centerY
+            
+            FLORENICDaisyButton.topAnchor.constraint(equalTo: contentView.topAnchor),
+            FLORENICDaisyButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            FLORENICDaisyButton.widthAnchor.constraint(equalToConstant: 25),
+            FLORENICDaisyButton.heightAnchor.constraint(equalToConstant: 25)
         ])
     }
     
@@ -114,6 +134,15 @@ class FLORENICBloodDreamCell: UITableViewCell {
         
         
         FLORENICLushImageView.layer.cornerRadius = 64 / 2
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        FLORENICdaisyConcernTap = nil
+    }
+    
+    @objc private func FLORENICdaisyConcernPressed() {
+        FLORENICdaisyConcernTap?()
     }
 }
 

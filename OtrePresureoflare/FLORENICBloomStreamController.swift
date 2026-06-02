@@ -169,6 +169,56 @@ class FLORENICBloomStreamController: UIViewController, FLORENICBloomStreamCellDe
         self.navigationController?.pushViewController(sctive, animated: true)
     }
     
+    func FLORENICorchidConcern(information: Dictionary<String, Any>) {
+        FLORENICshowConcernBloom(FLORENICkind: .FLORENICorchidRoom(information))
+    }
+    
+    private enum FLORENICConcernKind {
+        case FLORENICorchidRoom(Dictionary<String, Any>)
+        case FLORENICdaisyActivity(Int)
+    }
+    
+    private func FLORENICshowConcernBloom(FLORENICkind: FLORENICConcernKind) {
+        let FLORENICsheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        FLORENICsheet.addAction(UIAlertAction(title: self.florenicFloralDesign(florenicIke: "Bxlyoxcxk"), style: .destructive) { [weak self] _ in
+            self?.FLORENICblockConcernBloom(FLORENICkind)
+        })
+        FLORENICsheet.addAction(UIAlertAction(title: self.florenicFloralDesign(florenicIke: "Rxeypuoirpt"), style: .default) { [weak self] _ in
+            self?.FLORENICrouteConcernReport()
+        })
+        FLORENICsheet.addAction(UIAlertAction(title: self.florenicFloralDesign(florenicIke: "Cxaynucweql"), style: .cancel))
+        if let FLORENICpopover = FLORENICsheet.popoverPresentationController {
+            FLORENICpopover.sourceView = view
+            FLORENICpopover.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: 1, height: 1)
+            FLORENICpopover.permittedArrowDirections = []
+        }
+        present(FLORENICsheet, animated: true)
+    }
+    
+    private func FLORENICblockConcernBloom(_ FLORENICkind: FLORENICConcernKind) {
+        switch FLORENICkind {
+        case .FLORENICorchidRoom(let FLORENICinformation):
+            let FLORENICroomId = FLORENICinformation[self.florenicFloralDesign(florenicIke: "kqnwiefret")] as? Int ?? 0
+            let FLORENICuserId = FLORENICinformation[self.florenicFloralDesign(florenicIke: "wqawteerrtTyuubieo")] as? Int ?? 0
+            FLORENICswiftuSiaki.removeAll { FLORENICitem in
+                let FLORENICitemRoomId = FLORENICitem[self.florenicFloralDesign(florenicIke: "kqnwiefret")] as? Int ?? 0
+                let FLORENICitemUserId = FLORENICitem[self.florenicFloralDesign(florenicIke: "wqawteerrtTyuubieo")] as? Int ?? 0
+                return (FLORENICroomId > 0 && FLORENICitemRoomId == FLORENICroomId) || (FLORENICuserId > 0 && FLORENICitemUserId == FLORENICuserId)
+            }
+            FLORENICsolidago.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+        case .FLORENICdaisyActivity(let FLORENICindex):
+            guard FLORENICearthiness.indices.contains(FLORENICindex) else { return }
+            FLORENICearthiness.remove(at: FLORENICindex)
+            FLORENICsolidago.reloadData()
+        }
+    }
+    
+    private func FLORENICrouteConcernReport() {
+        let FLORENICsctive = FLORENICDreatorsController.init(_florenicBotanical: FLORENICSaturationTape.FLORENICpattern.FLORENICperformanceMacro())
+        FLORENICsctive.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(FLORENICsctive, animated: true)
+    }
+    
     private var FLORENICswiftuSiaki:Array<Dictionary<String,Any>> = Array<Dictionary<String,Any>>()
     
     
@@ -306,6 +356,9 @@ extension FLORENICBloomStreamController:UITableViewDelegate,UITableViewDataSourc
         coldComeingMAin.FLORENICGardenImageView.FLORENICloadImage(from:acuser?.first?["care"] as? String ?? "" )
         coldComeingMAin.FLORENICComplementaryLabel.text = "\(acuser?.count ?? 0) " + self.florenicFloralDesign(florenicIke: "Jsomiunvekd")
         coldComeingMAin.FLORENICSeasonalLabel.text = pikingData["proposal"] as? String ?? ""
+        coldComeingMAin.FLORENICdaisyConcernTap = { [weak self] in
+            self?.FLORENICshowConcernBloom(FLORENICkind: .FLORENICdaisyActivity(indexPath.row - 1))
+        }
       
         return coldComeingMAin
     }

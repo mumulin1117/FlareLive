@@ -10,6 +10,7 @@ import UIKit
 
 class FLORENICNiceLivaerCell: UICollectionViewCell {
 
+    var FLORENICorchidConcernTap: (() -> Void)?
 
      lazy var FLORENICMonsteraImageView: UIImageView = {
         let FLORENICimageView = UIImageView()
@@ -43,6 +44,18 @@ class FLORENICNiceLivaerCell: UICollectionViewCell {
         return FLORENIClabel
     }()
     
+    lazy var FLORENICOrchidButton: UIButton = {
+        let FLORENICbutton = UIButton(type: .custom)
+        FLORENICbutton.translatesAutoresizingMaskIntoConstraints = false
+        FLORENICbutton.backgroundColor = UIColor.black.withAlphaComponent(0.55)
+        FLORENICbutton.tintColor = .white
+        FLORENICbutton.setImage(UIImage(systemName: "exclamationmark.bubble.fill"), for: .normal)
+        FLORENICbutton.layer.cornerRadius = 14
+        FLORENICbutton.layer.masksToBounds = true
+        FLORENICbutton.addTarget(self, action: #selector(FLORENICorchidConcernPressed), for: .touchUpInside)
+        return FLORENICbutton
+    }()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -59,6 +72,7 @@ class FLORENICNiceLivaerCell: UICollectionViewCell {
         contentView.addSubview(FLORENICMonsteraImageView)
         contentView.addSubview(FLORENICPittosporumImageView)
         contentView.addSubview(FLORENICAsparagusFernLabel)
+        contentView.addSubview(FLORENICOrchidButton)
     }
     
     private func setupFLORENICConstraints() {
@@ -79,8 +93,17 @@ class FLORENICNiceLivaerCell: UICollectionViewCell {
             // 3. FLORENICAsparagusFernLabel (Bottom Leading)
             FLORENICAsparagusFernLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10), //
             FLORENICAsparagusFernLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-            FLORENICAsparagusFernLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
+            FLORENICAsparagusFernLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            
+            FLORENICOrchidButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            FLORENICOrchidButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            FLORENICOrchidButton.widthAnchor.constraint(equalToConstant: 28),
+            FLORENICOrchidButton.heightAnchor.constraint(equalToConstant: 28)
         ])
+    }
+    
+    @objc private func FLORENICorchidConcernPressed() {
+        FLORENICorchidConcernTap?()
     }
     
     // MARK: - Lifecycle Overrides
@@ -88,6 +111,11 @@ class FLORENICNiceLivaerCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code (XIB 版本的 awakeFromNib 默认无逻辑)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        FLORENICorchidConcernTap = nil
     }
     
     // MARK: - Data Configuration (Optional Helper)
